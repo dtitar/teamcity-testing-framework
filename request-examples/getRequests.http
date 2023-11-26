@@ -1,0 +1,2 @@
+GET http://admin:admin@172.20.213.209:8111/app/rest/buildTypes/id:id
+Accept: application/json
