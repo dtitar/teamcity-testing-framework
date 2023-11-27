@@ -29,8 +29,11 @@ public class UncheckedUser implements CrudInterface {
     }
 
     @Override
-    public Object update(Object object) {
-        return null;
+    public Response update(String id, Object obj) {
+        return given()
+                .spec(spec)
+                .body(obj)
+                .put(USER_ENDPOINT + "/username:" + id);
     }
 
     @Override

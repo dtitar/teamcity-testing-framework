@@ -1,6 +1,7 @@
 package com.github.dtitar.teamcity.api;
 
 import com.github.dtitar.teamcity.api.models.Role;
+import com.github.dtitar.teamcity.api.models.RoleId;
 import com.github.dtitar.teamcity.api.models.Roles;
 import com.github.dtitar.teamcity.api.requests.checked.CheckedProject;
 import com.github.dtitar.teamcity.api.requests.checked.CheckedUser;
@@ -16,7 +17,7 @@ import static org.hamcrest.Matchers.containsString;
 
 public class RolesTest extends BaseApiTest {
     @Test
-    public void testUnauthorizedUser() {
+    public void unauthorizedUserShouldNotHaveRightsToCreateProject() {
         new UncheckedProject(Specifications.getSpec()
                 .unauthSpec()).create(testdata.getProject())
                 .then()
@@ -35,11 +36,11 @@ public class RolesTest extends BaseApiTest {
     }
 
     @Test
-    public void systemAdminTest() {
+    public void systemAdminShouldHaveRightsToCreateProject() {
         testdata.getUser()
                 .setRoles(Roles.builder()
                         .role(Arrays.asList(Role.builder()
-                                .roleId("SYSTEM_ADMIN")
+                                .roleId(RoleId.SYSTEM_ADMIN.name())
                                 .scope("g")
                                 .build()))
                         .build());

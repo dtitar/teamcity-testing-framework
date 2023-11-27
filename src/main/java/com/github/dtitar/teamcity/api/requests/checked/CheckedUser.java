@@ -3,7 +3,6 @@ package com.github.dtitar.teamcity.api.requests.checked;
 import com.github.dtitar.teamcity.api.models.Project;
 import com.github.dtitar.teamcity.api.models.User;
 import com.github.dtitar.teamcity.api.requests.CrudInterface;
-import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedProject;
 import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedUser;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
@@ -36,8 +35,14 @@ public class CheckedUser implements CrudInterface {
     }
 
     @Override
-    public Object update(Object object) {
-        return null;
+    public User update(String id, Object obj) {
+        return new UncheckedUser(spec)
+                .update(id, obj)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .as(User.class);
     }
 
     @Override

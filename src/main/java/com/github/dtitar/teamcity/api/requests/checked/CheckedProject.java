@@ -35,7 +35,7 @@ public class CheckedProject implements CrudInterface {
     }
 
     @Override
-    public Object update(Object object) {
+    public Object update(String id, Object obj) {
         return null;
     }
 
