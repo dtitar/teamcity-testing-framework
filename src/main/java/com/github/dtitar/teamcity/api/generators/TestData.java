@@ -1,5 +1,6 @@
 package com.github.dtitar.teamcity.api.generators;
 
+import com.github.dtitar.teamcity.api.models.BuildType;
 import com.github.dtitar.teamcity.api.models.NewProjectDescription;
 import com.github.dtitar.teamcity.api.models.User;
 import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedProject;
@@ -14,6 +15,7 @@ public class TestData {
 
     private User user;
     private NewProjectDescription project;
+    private BuildType buildType;
 
     public void delete() {
         new UncheckedProject(Specifications.getSpec()

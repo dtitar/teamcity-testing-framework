@@ -1,18 +1,18 @@
 package com.github.dtitar.teamcity.api.requests.unchecked;
 
 import com.github.dtitar.teamcity.api.requests.CrudInterface;
+import com.github.dtitar.teamcity.api.requests.Request;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class UncheckedUser implements CrudInterface {
+public class UncheckedUser extends Request implements CrudInterface {
 
     private static final String USER_ENDPOINT = "/app/rest/users";
-    RequestSpecification spec;
 
     public UncheckedUser(RequestSpecification spec) {
-        this.spec = spec;
+        super(spec);
     }
 
     @Override

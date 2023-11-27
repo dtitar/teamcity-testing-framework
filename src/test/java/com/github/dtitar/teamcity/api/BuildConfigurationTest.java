@@ -10,14 +10,16 @@ import org.testng.annotations.Test;
 public class BuildConfigurationTest extends BaseApiTest {
     @Test
     public void buildConfigurationTest() {
+        var testData = testDataStorage.addTestData();
+
         new CheckedUser(Specifications.getSpec()
-                .superUserSpec()).create(testdata.getUser());
+                .superUserSpec()).create(testData.getUser());
 
         var project = new CheckedProject(Specifications.getSpec()
-                .authSpec(testdata.getUser())).create(testdata.getProject());
+                .authSpec(testData.getUser())).create(testData.getProject());
 
         softly.assertThat(project.getId())
-                .isEqualTo(testdata.getProject()
+                .isEqualTo(testData.getProject()
                         .getId());
     }
 }

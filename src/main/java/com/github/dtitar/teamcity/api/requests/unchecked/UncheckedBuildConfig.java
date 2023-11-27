@@ -1,19 +1,17 @@
 package com.github.dtitar.teamcity.api.requests.unchecked;
 
-import com.github.dtitar.teamcity.api.models.User;
 import com.github.dtitar.teamcity.api.requests.CrudInterface;
 import com.github.dtitar.teamcity.api.requests.Request;
-import com.github.dtitar.teamcity.api.spec.Specifications;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class UncheckedProject extends Request implements CrudInterface {
+public class UncheckedBuildConfig extends Request implements CrudInterface {
 
-    private static final String PROJECT_ENDPOINT = "/app/rest/projects";
+    private static final String BUILD_CONFIG_ENDPOINT = "/app/rest/buildTypes";
 
-    public UncheckedProject(RequestSpecification spec) {
+    public UncheckedBuildConfig(RequestSpecification spec) {
         super(spec);
     }
 
@@ -21,23 +19,27 @@ public class UncheckedProject extends Request implements CrudInterface {
     public Response create(Object obj) {
         return given().spec(spec)
                 .body(obj)
-                .post(PROJECT_ENDPOINT);
+                .post(BUILD_CONFIG_ENDPOINT);
     }
 
     @Override
     public Response get(String id) {
-        return given().spec(spec)
-                .get(PROJECT_ENDPOINT + "/id:" + id);
+        return given()
+                .spec(spec)
+                .get(BUILD_CONFIG_ENDPOINT + "/id:" + id);
     }
 
     @Override
-    public Object update(String id, Object obj) {
-        return null;
+    public Response update(String id, Object obj) {
+        return given()
+                .spec(spec)
+                .body(obj)
+                .get(BUILD_CONFIG_ENDPOINT + "/id:" + id);
     }
 
     @Override
     public Response delete(String id) {
         return given().spec(spec)
-                .delete(PROJECT_ENDPOINT + "/id:" + id);
+                .post(BUILD_CONFIG_ENDPOINT + "/id:" + id);
     }
 }

@@ -3,15 +3,15 @@ package com.github.dtitar.teamcity.api.requests.checked;
 import com.github.dtitar.teamcity.api.models.Project;
 import com.github.dtitar.teamcity.api.models.User;
 import com.github.dtitar.teamcity.api.requests.CrudInterface;
+import com.github.dtitar.teamcity.api.requests.Request;
 import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedUser;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 
-public class CheckedUser implements CrudInterface {
-    private final RequestSpecification spec;
+public class CheckedUser extends Request implements CrudInterface {
 
     public CheckedUser(RequestSpecification spec) {
-        this.spec = spec;
+        super(spec);
     }
 
     @Override

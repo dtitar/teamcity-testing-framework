@@ -1,16 +1,13 @@
 package com.github.dtitar.teamcity.api;
 
-import com.github.dtitar.teamcity.api.models.Role;
-import com.github.dtitar.teamcity.api.models.RoleId;
-import com.github.dtitar.teamcity.api.models.Roles;
+import com.github.dtitar.teamcity.api.enums.RoleId;
+import com.github.dtitar.teamcity.api.generators.TestDataGenerator;
+import com.github.dtitar.teamcity.api.requests.checked.CheckedBuildConfig;
 import com.github.dtitar.teamcity.api.requests.checked.CheckedProject;
-import com.github.dtitar.teamcity.api.requests.checked.CheckedUser;
-import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedProject;
+import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedBuildConfig;
 import com.github.dtitar.teamcity.api.spec.Specifications;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
 
 import static java.lang.String.format;
 import static org.hamcrest.Matchers.containsString;
@@ -18,41 +15,96 @@ import static org.hamcrest.Matchers.containsString;
 public class RolesTest extends BaseApiTest {
     @Test
     public void unauthorizedUserShouldNotHaveRightsToCreateProject() {
-        new UncheckedProject(Specifications.getSpec()
-                .unauthSpec()).create(testdata.getProject())
+        var testData = testDataStorage.addTestData();
+
+        unCheckedWithSuperUser.getProjectRequest()
+                .create(testData.getProject())
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)
                 .body(containsString("Authentication required"));
 
-        new UncheckedProject(Specifications.getSpec()
-                .authSpec(testdata.getUser())).get(testdata.getProject()
+        unCheckedWithSuperUser.getProjectRequest()
+                .get(testData.getProject()
                         .getId())
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_NOT_FOUND)
-                .body(containsString(format("No project found by locator 'count:1,id:%s'", testdata.getProject()
+                .body(containsString(format("No project found by locator 'count:1,id:%s'", testData.getProject()
                         .getId())));
     }
 
     @Test
     public void systemAdminShouldHaveRightsToCreateProject() {
-        testdata.getUser()
-                .setRoles(Roles.builder()
-                        .role(Arrays.asList(Role.builder()
-                                .roleId(RoleId.SYSTEM_ADMIN.name())
-                                .scope("g")
-                                .build()))
-                        .build());
+        var testData = testDataStorage.addTestData();
 
-        new CheckedUser(Specifications.getSpec()
-                .superUserSpec()).create(testdata.getUser());
+        testData.getUser()
+                .setRoles(TestDataGenerator.generateRoles(RoleId.SYSTEM_ADMIN, "g"));
+
+        checkedWithSuperUser.getUserRequest()
+                .create(testData.getUser());
 
         var project = new CheckedProject(Specifications.getSpec()
-                .authSpec(testdata.getUser())).create(testdata.getProject());
+                .authSpec(testData.getUser())).create(testData.getProject());
 
         softly.assertThat(project.getId())
-                .isEqualTo(testdata.getProject()
+                .isEqualTo(testData.getProject()
                         .getId());
+    }
+
+    @Test
+    public void projectAdminShouldHaveRightsToCreateBuildConfigToHisProject() {
+        var testData = testDataStorage.addTestData();
+
+        checkedWithSuperUser.getProjectRequest()
+                .create(testData.getProject());
+
+        testData.getUser()
+                .setRoles(TestDataGenerator.generateRoles(RoleId.PROJECT_ADMIN, "p:" + testData.getProject()
+                        .getId()));
+
+        checkedWithSuperUser.getUserRequest()
+                .create(testData.getUser());
+
+        var buildConfig = new CheckedBuildConfig(Specifications.getSpec()
+                .authSpec(testData.getUser())).create(testData.getBuildType());
+
+        softly.assertThat(buildConfig.getId())
+                .isEqualTo(testData.getBuildType()
+                        .getId());
+    }
+
+    @Test
+    public void projectAdminShouldNotHaveRightsToCreateBuildConfigToAnotherProject() {
+        var firstTestData = testDataStorage.addTestData();
+        var secondTestData = testDataStorage.addTestData();
+
+        checkedWithSuperUser.getProjectRequest()
+                .create(firstTestData.getProject());
+
+        checkedWithSuperUser.getProjectRequest()
+                .create(secondTestData.getProject());
+
+        firstTestData.getUser()
+                .setRoles(TestDataGenerator
+                        .generateRoles(RoleId.PROJECT_ADMIN, "p:" + firstTestData.getProject()
+                                .getId()));
+
+        checkedWithSuperUser.getUserRequest()
+                .create(firstTestData.getUser());
+
+
+        secondTestData.getUser()
+                .setRoles(TestDataGenerator
+                        .generateRoles(RoleId.PROJECT_ADMIN, "p:" + secondTestData.getProject()
+                                .getId()));
+
+
+        checkedWithSuperUser.getUserRequest()
+                .create(secondTestData.getUser());
+
+        new UncheckedBuildConfig(Specifications.getSpec()
+                .authSpec(secondTestData.getUser())).create(firstTestData.getBuildType())
+                .then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
     }
 }
