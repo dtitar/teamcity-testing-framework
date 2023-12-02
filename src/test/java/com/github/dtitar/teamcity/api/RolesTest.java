@@ -2,9 +2,9 @@ package com.github.dtitar.teamcity.api;
 
 import com.github.dtitar.teamcity.api.enums.RoleId;
 import com.github.dtitar.teamcity.api.generators.TestDataGenerator;
+import com.github.dtitar.teamcity.api.requests.UncheckedRequests;
 import com.github.dtitar.teamcity.api.requests.checked.CheckedBuildConfig;
 import com.github.dtitar.teamcity.api.requests.checked.CheckedProject;
-import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedBuildConfig;
 import com.github.dtitar.teamcity.api.spec.Specifications;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -17,7 +17,8 @@ public class RolesTest extends BaseApiTest {
     public void unauthorizedUserShouldNotHaveRightsToCreateProject() {
         var testData = testDataStorage.addTestData();
 
-        unCheckedWithSuperUser.getProjectRequest()
+        new UncheckedRequests(Specifications.getSpec()
+                .unauthSpec()).getProjectRequest()
                 .create(testData.getProject())
                 .then()
                 .assertThat()
@@ -102,9 +103,11 @@ public class RolesTest extends BaseApiTest {
 
         checkedWithSuperUser.getUserRequest()
                 .create(secondTestData.getUser());
-
-        new UncheckedBuildConfig(Specifications.getSpec()
-                .authSpec(secondTestData.getUser())).create(firstTestData.getBuildType())
-                .then().assertThat().statusCode(HttpStatus.SC_BAD_REQUEST);
+        new UncheckedRequests(Specifications.getSpec()
+                .authSpec(secondTestData.getUser())).getBuildConfigRequest()
+                .create(firstTestData.getBuildType())
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_BAD_REQUEST);
     }
 }
