@@ -23,4 +23,13 @@ public class TestData {
         new UncheckedUser(Specifications.getSpec()
                 .superUserSpec()).delete(user.getUsername());
     }
+
+    @Override
+    public String toString() {
+        return "TestData{\n" +
+                "user=" + user +
+                ", \nproject=" + project +
+                ", \nbuildType=" + buildType +
+                "\n}\n";
+    }
 }

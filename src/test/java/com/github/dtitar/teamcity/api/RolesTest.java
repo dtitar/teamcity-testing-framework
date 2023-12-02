@@ -2,9 +2,8 @@ package com.github.dtitar.teamcity.api;
 
 import com.github.dtitar.teamcity.api.enums.RoleId;
 import com.github.dtitar.teamcity.api.generators.TestDataGenerator;
+import com.github.dtitar.teamcity.api.requests.CheckedRequests;
 import com.github.dtitar.teamcity.api.requests.UncheckedRequests;
-import com.github.dtitar.teamcity.api.requests.checked.CheckedBuildConfig;
-import com.github.dtitar.teamcity.api.requests.checked.CheckedProject;
 import com.github.dtitar.teamcity.api.spec.Specifications;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -13,6 +12,7 @@ import static java.lang.String.format;
 import static org.hamcrest.Matchers.containsString;
 
 public class RolesTest extends BaseApiTest {
+
     @Test
     public void unauthorizedUserShouldNotHaveRightsToCreateProject() {
         var testData = testDataStorage.addTestData();
@@ -45,8 +45,10 @@ public class RolesTest extends BaseApiTest {
         checkedWithSuperUser.getUserRequest()
                 .create(testData.getUser());
 
-        var project = new CheckedProject(Specifications.getSpec()
-                .authSpec(testData.getUser())).create(testData.getProject());
+        var project = new CheckedRequests(Specifications.getSpec()
+                .authSpec(testData.getUser()))
+                .getProjectRequest()
+                .create(testData.getProject());
 
         softly.assertThat(project.getId())
                 .isEqualTo(testData.getProject()
@@ -67,8 +69,10 @@ public class RolesTest extends BaseApiTest {
         checkedWithSuperUser.getUserRequest()
                 .create(testData.getUser());
 
-        var buildConfig = new CheckedBuildConfig(Specifications.getSpec()
-                .authSpec(testData.getUser())).create(testData.getBuildType());
+        var buildConfig = new CheckedRequests(Specifications.getSpec()
+                .authSpec(testData.getUser()))
+                .getBuildConfigRequest()
+                .create(testData.getBuildType());
 
         softly.assertThat(buildConfig.getId())
                 .isEqualTo(testData.getBuildType()
@@ -100,9 +104,9 @@ public class RolesTest extends BaseApiTest {
                         .generateRoles(RoleId.PROJECT_ADMIN, "p:" + secondTestData.getProject()
                                 .getId()));
 
-
         checkedWithSuperUser.getUserRequest()
                 .create(secondTestData.getUser());
+
         new UncheckedRequests(Specifications.getSpec()
                 .authSpec(secondTestData.getUser())).getBuildConfigRequest()
                 .create(firstTestData.getBuildType())
