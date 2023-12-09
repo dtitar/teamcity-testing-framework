@@ -11,19 +11,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseApiTest extends BaseTest {
-    TestDataStorage testDataStorage;
+
     CheckedRequests checkedWithSuperUser = new CheckedRequests(Specifications.getSpec()
             .superUserSpec());
     UncheckedRequests unCheckedWithSuperUser = new UncheckedRequests(Specifications.getSpec()
             .superUserSpec());
-
-    @BeforeMethod
-    public void setupTest() {
-        testDataStorage = TestDataStorage.getStorage();
-    }
-
-    @AfterMethod
-    public void cleanTest() {
-        testDataStorage.delete();
-    }
 }
