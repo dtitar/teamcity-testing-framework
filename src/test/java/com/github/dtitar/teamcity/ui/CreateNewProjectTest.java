@@ -1,27 +1,19 @@
 package com.github.dtitar.teamcity.ui;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.selector.ByAttribute;
-import com.github.dtitar.teamcity.api.requests.checked.CheckedUser;
-import com.github.dtitar.teamcity.api.spec.Specifications;
+import com.github.dtitar.teamcity.ui.pages.admin.CreateNewProjectPage;
 import org.testng.annotations.Test;
-
-import static com.codeborne.selenide.Selenide.element;
 
 public class CreateNewProjectTest extends BaseUiTest {
     @Test
     public void authorizedUserShouldBeAbleCreateProject() {
         var testData = testDataStorage.addTestData();
-        new CheckedUser(Specifications.getSpec()
-                .superUserSpec()).create(testData.getUser());
+        var url = "https://github.com/dtitar/workshop-test-automation-from-scratch";
 
-        Selenide.open("/login.html");
-        var userNameInput = element(new ByAttribute("id", "username"));
-        var passwordInput = element(new ByAttribute("id", "password"));
-        var submitButton = element(new ByAttribute("type", "submit"));
+        loginAsUser(testData.getUser());
 
-        userNameInput.sendKeys(testData.getUser().getUsername());
-        passwordInput.sendKeys(testData.getUser().getPassword());
-        submitButton.click();
+        new CreateNewProjectPage()
+                .open(testData.getProject().getParentProject().getLocator())
+                .createProjectByUrl(url)
+                .setupProject(testData.getProject().getName(), testData.getBuildType().getName());
     }
 }

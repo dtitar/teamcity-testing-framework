@@ -3,6 +3,10 @@ package com.github.dtitar.teamcity.ui;
 import com.codeborne.selenide.Configuration;
 import com.github.dtitar.teamcity.BaseTest;
 import com.github.dtitar.teamcity.api.config.Config;
+import com.github.dtitar.teamcity.api.models.User;
+import com.github.dtitar.teamcity.api.requests.checked.CheckedUser;
+import com.github.dtitar.teamcity.api.spec.Specifications;
+import com.github.dtitar.teamcity.ui.pages.LoginPage;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeSuite;
 
@@ -17,16 +21,13 @@ public class BaseUiTest extends BaseTest {
         Configuration.browser = "firefox";
         Configuration.baseUrl = format("http://%s", Config.getProperty("host"));
         Configuration.remote=Config.getProperty("remote");
-
         Configuration.reportsFolder = "target/surefire-reports";
         Configuration.downloadsFolder ="target/downloads";
+        BrowserSettings.setup(Config.getProperty("browser"));
+    }
 
-        Map<String, Boolean> options = new HashMap<>();
-        options.put("enableVNC", true);
-        options.put("enableLog", true);
-
-        FirefoxOptions capabilities = new FirefoxOptions();
-        Configuration.browserCapabilities = capabilities;
-        Configuration.browserCapabilities.setCapability("selenoid:options", options);
+    public void loginAsUser(User user) {
+        new CheckedUser(Specifications.getSpec().superUserSpec()).create(user);
+        new LoginPage().open().login(user);
     }
 }
