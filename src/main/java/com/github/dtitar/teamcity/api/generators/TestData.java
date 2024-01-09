@@ -13,7 +13,6 @@ import lombok.Data;
 @Builder
 public class TestData {
 
-    //Не уверен, это должно быть тут или в классе с тестами. Решил оставить здесь.
     public static final int MIN_PROJECT_NAME_LENGTH = 1;
     public static final int MAX_PROJECT_NAME_LENGTH = 80;
     public static final int MIN_PROJECT_ID_LENGTH = 1;

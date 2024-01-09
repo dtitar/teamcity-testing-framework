@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class CreateNewProjectTest extends BaseUiTest {
     @Test
-    public void authorizedUserShouldBeAbleCreateProject() {
+    public void authorizedUserShouldBeAbleCreateProjectFromRepositoryUrl() {
         var testData = testDataStorage.addTestData();
         var url = "https://github.com/dtitar/workshop-test-automation-from-scratch";
 
@@ -17,6 +17,24 @@ public class CreateNewProjectTest extends BaseUiTest {
                 .open(testData.getProject().getParentProject().getLocator())
                 .createProjectByUrl(url)
                 .setupProject(testData.getProject().getName(), testData.getBuildType().getName());
+
+        new ProjectsPage().open()
+                .getSubProjects()
+                .stream().reduce((first, second) -> second).get()
+                .getHeader()
+                .shouldHave(Condition.text(testData.getProject()
+                        .getName()));
+    }
+
+    @Test
+    public void authorizedUserShouldBeAbleCreateProjectManually() {
+        var testData = testDataStorage.addTestData();
+
+        loginAsUser(testData.getUser());
+
+        new CreateNewProjectPage()
+                .open(testData.getProject().getParentProject().getLocator())
+                .createProjectManually(testData.getProject().getName());
 
         new ProjectsPage().open()
                 .getSubProjects()

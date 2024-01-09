@@ -7,15 +7,18 @@ import com.github.dtitar.teamcity.ui.pages.Page;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.attributeMatching;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.element;
 
 public class CreateNewProjectPage extends Page {
-    private SelenideElement createProjectForm = element(Selectors.byId("mainContent"));
     private SelenideElement connectionSuccessfulMessage = element(Selectors.byClass("connectionSuccessful"));
     private SelenideElement urlInput = element(Selectors.byId("url"));
     private SelenideElement projectNameInput = element(Selectors.byId("projectName"));
     private SelenideElement buildTypeNameInput = element(Selectors.byId("buildTypeName"));
+    private SelenideElement manuallyTab = element(Selectors.byAttribute("href", "#createManually"));
+    private SelenideElement projectNameManuallyInput = element(Selectors.byId("name"));
 
     public CreateNewProjectPage open(String parentProjectId) {
         Selenide.open("/admin/createObjectMenu.html?projectId=" + parentProjectId + "&showMode=createProjectMenu");
@@ -29,10 +32,17 @@ public class CreateNewProjectPage extends Page {
         return this;
     }
 
-    public void setupProject(String projectName, String buildTypeName) {    System.out.println("Method setupProject() started");
-        connectionSuccessfulMessage.shouldBe(visible, Duration.ofSeconds(20));
+    public void setupProject(String projectName, String buildTypeName) {
+        connectionSuccessfulMessage.shouldBe(visible, Duration.ofSeconds(30));
         projectNameInput.setValue(projectName);
         buildTypeNameInput.setValue(buildTypeName);
+        submit();
+    }
+
+    public void createProjectManually(String projectName) {
+        manuallyTab.click();
+        manuallyTab.shouldHave(attributeMatching("class", ".*expanded.*"));
+        projectNameManuallyInput.setValue(projectName);
         submit();
     }
 }
