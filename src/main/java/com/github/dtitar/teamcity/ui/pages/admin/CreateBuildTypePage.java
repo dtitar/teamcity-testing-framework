@@ -15,11 +15,10 @@ public class CreateBuildTypePage extends Page {
 
     private SelenideElement connectionSuccessfulMessage = element(Selectors.byClass("connectionSuccessful"));
 
-    private SelenideElement fromRepositoryUrlTab = element(Selectors.byAttribute("href", "#createFromUrl"));
-    private SelenideElement repositoryUrlInput = element(Selectors.byId("url"));
-    private SelenideElement buildTypeNameInput = element(Selectors.byId("buildTypeName"));
-    private SelenideElement manuallyTab = element(Selectors.byAttribute("href", "#createManually"));
-    private SelenideElement projectNameManuallyInput = element(Selectors.byId("name"));
+    private final SelenideElement fromRepositoryUrlTab = element(Selectors.byAttribute("href", "#createFromUrl"));
+    private final SelenideElement repositoryUrlInput = element(Selectors.byId("url"));
+    private final SelenideElement buildTypeNameInput = element(Selectors.byId("buildTypeName"));
+    private final SelenideElement manuallyTab = element(Selectors.byAttribute("href", "#createManually"));
 
 
     public CreateBuildTypePage open(String projectName) {
@@ -41,10 +40,10 @@ public class CreateBuildTypePage extends Page {
         submit();
     }
 
-    public void createProjectManually(String projectName) {
+    public void createBuildTypeManually(String buildTypeName) {
         manuallyTab.click();
         manuallyTab.shouldHave(attributeMatching("class", ".*expanded.*"));
-        projectNameManuallyInput.setValue(projectName);
+        buildTypeNameInput.setValue(buildTypeName);
         submit();
     }
 }
