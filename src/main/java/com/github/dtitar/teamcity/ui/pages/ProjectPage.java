@@ -11,12 +11,13 @@ import java.time.Duration;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.elements;
+import static java.lang.String.format;
 
 public class ProjectPage extends FavoritesPage {
     private final ElementsCollection buildTypes = elements(ByAttribute.cssSelector("[class*=BuildTypeLine__root]"));
 
     public ProjectPage open(String projectName) {
-        Selenide.open("/project/" + projectName + "?mode=builds");
+        Selenide.open(format("/project/%s/?mode=builds", projectName));
         this.waitUntilFavoritePageIsLoaded();
         return this;
     }
