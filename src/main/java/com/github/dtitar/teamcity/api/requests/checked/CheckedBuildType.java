@@ -24,14 +24,14 @@ public class CheckedBuildType extends Request implements CrudInterface {
     }
 
     @Override
-    public Object get(String id) {
+    public BuildType get(String id) {
         return new UncheckedBuildConfig(spec).get(id)
                 .then().assertThat().statusCode(HttpStatus.SC_OK)
                 .extract().as(BuildType.class);
     }
 
     @Override
-    public Object update(String id, Object obj) {
+    public BuildType update(String id, Object obj) {
         return new UncheckedBuildConfig(spec).update(id, obj)
                 .then().assertThat().statusCode(HttpStatus.SC_OK)
                 .extract().as(BuildType.class);
