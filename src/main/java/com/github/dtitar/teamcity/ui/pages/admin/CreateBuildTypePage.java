@@ -18,6 +18,7 @@ public class CreateBuildTypePage extends Page {
     private final SelenideElement fromRepositoryUrlTab = element(Selectors.byAttribute("href", "#createFromUrl"));
     private final SelenideElement repositoryUrlInput = element(Selectors.byId("url"));
     private final SelenideElement buildTypeNameInput = element(Selectors.byId("buildTypeName"));
+    private final SelenideElement buildTypeIdInput = element(Selectors.byId("buildTypeExternalId"));
     private final SelenideElement manuallyTab = element(Selectors.byAttribute("href", "#createManually"));
 
 
@@ -44,6 +45,14 @@ public class CreateBuildTypePage extends Page {
         manuallyTab.click();
         manuallyTab.shouldHave(attributeMatching("class", ".*expanded.*"));
         buildTypeNameInput.setValue(buildTypeName);
+        submit();
+    }
+
+    public void createBuildTypeManually(String buildTypeName, String buildTypeId) {
+        manuallyTab.click();
+        manuallyTab.shouldHave(attributeMatching("class", ".*expanded.*"));
+        buildTypeNameInput.setValue(buildTypeName);
+        buildTypeIdInput.setValue(buildTypeId);
         submit();
     }
 }
