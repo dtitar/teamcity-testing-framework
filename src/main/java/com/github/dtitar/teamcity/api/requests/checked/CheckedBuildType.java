@@ -4,16 +4,12 @@ import com.github.dtitar.teamcity.api.models.BuildType;
 import com.github.dtitar.teamcity.api.requests.CrudInterface;
 import com.github.dtitar.teamcity.api.requests.Request;
 import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedBuildConfig;
-import com.github.dtitar.teamcity.api.spec.Specifications;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 
-import static io.restassured.RestAssured.given;
+public class CheckedBuildType extends Request implements CrudInterface {
 
-public class CheckedBuildConfig extends Request implements CrudInterface {
-
-    public CheckedBuildConfig(RequestSpecification spec) {
+    public CheckedBuildType(RequestSpecification spec) {
         super(spec);
     }
 
