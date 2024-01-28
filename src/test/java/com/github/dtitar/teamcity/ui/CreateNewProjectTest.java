@@ -15,7 +15,7 @@ public class CreateNewProjectTest extends BaseUiTest {
          * нужно это потому, что при создании проекта через урл Id присваивается автоматически и он равен
          * имени проекта без спецсимволов, регистр так же отличается, например проект с именем test_atsZuiMLun
          * будет иметь id TestAtsZuiMLun и тд. В зависимости от требований это можно учитывать в проверках или опускать
-         *
+         * в данном случае id в апи проверке проверяется без учета регистра
          */
         testData.getProject()
                 .setId(testData.getProject()
@@ -65,10 +65,24 @@ public class CreateNewProjectTest extends BaseUiTest {
                         .getParentProject()
                         .getLocator())
                 .createProjectManually(testData.getProject()
-                        .getName());
+                        .getName(), testData.getProject().getId());
 
         new ProjectsPage().open()
                 .checkProjectExist(testData.getProject()
                         .getName());
+
+        var projectFromApi = new CheckedProject(Specifications.getSpec()
+                .authSpec(testData.getUser())).get(testData.getProject()
+                .getId());
+
+        softly.assertThat(projectFromApi.getName())
+                .isEqualTo(testData.getProject()
+                        .getName());
+        softly.assertThat(projectFromApi.getId())
+                .isEqualToIgnoringCase(testData.getProject()
+                        .getId());
+        softly.assertThat(projectFromApi.getParentProjectId())
+                .isEqualTo(testData.getProject()
+                        .getParentProject().getLocator());
     }
 }
