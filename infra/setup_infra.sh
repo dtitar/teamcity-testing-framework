@@ -52,7 +52,7 @@ mkdir config
 cp $teamcity_tests_directory/infra/browsers.json config/
 
 docker run -d                                   \
-            --name $selenoid_containaer_name                                 \
+            --name $selenoid_container_name                                 \
             -p 4444:4444                                    \
             -v /var/run/docker.sock:/var/run/docker.sock    \
             -v $(pwd)/config/:/etc/selenoid/:ro              \

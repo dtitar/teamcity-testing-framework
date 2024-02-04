@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.github.dtitar.teamcity.ui.pages.StartUpPage;
 import org.testng.annotations.Test;
 
-public class SetupTest {
+public class SetupTest extends BaseUiTest{
 
     @Test
     public void startUpTest() {
