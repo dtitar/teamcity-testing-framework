@@ -1,11 +1,13 @@
 package com.github.dtitar.teamcity.ui.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.github.dtitar.teamcity.ui.Selectors;
 import com.github.dtitar.teamcity.ui.elements.ProjectElement;
 import com.github.dtitar.teamcity.ui.pages.favorites.FavoritesPage;
 
+import java.time.Duration;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.elements;
@@ -22,5 +24,15 @@ public class ProjectsPage extends FavoritesPage {
 
     public List<ProjectElement> getSubProjects() {
         return generatePageElements(subProjects, ProjectElement::new);
+    }
+
+    public ProjectsPage checkProjectExist(String projectName) {
+        getSubProjects()
+                .stream()
+                .reduce((first, second) -> second)
+                .get()
+                .getHeader()
+                .shouldHave(Condition.text(projectName), Duration.ofSeconds(30));
+        return this;
     }
 }

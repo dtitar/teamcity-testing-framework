@@ -24,7 +24,7 @@ public class BuildConfigurationTest extends BaseApiTest {
                 .create(testData.getProject());
 
         var buildConfig = checkedRequests
-                .getBuildConfigRequest()
+                .getBuildTypeRequest()
                 .create(testData.getBuildType());
 
         softly.assertThat(buildConfig.getId())

@@ -71,7 +71,7 @@ public class RolesTest extends BaseApiTest {
 
         var buildConfig = new CheckedRequests(Specifications.getSpec()
                 .authSpec(testData.getUser()))
-                .getBuildConfigRequest()
+                .getBuildTypeRequest()
                 .create(testData.getBuildType());
 
         softly.assertThat(buildConfig.getId())
