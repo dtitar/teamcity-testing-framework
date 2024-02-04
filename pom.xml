@@ -10,7 +10,7 @@
     <name>teamcity-testing-framework</name>
 
     <properties>
-        <newProjectDescription.build.sourceEncoding>UTF-8</newProjectDescription.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
         <aspectj.version>1.9.19</aspectj.version>
@@ -22,7 +22,7 @@
         <slf4j-simple.version>2.0.7</slf4j-simple.version>
         <gson.version>2.10.1</gson.version>
         <assertj-core.version>3.24.2</assertj-core.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <allure-maven.version>2.12.0</allure-maven.version>
     </properties>
 
@@ -77,7 +77,6 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
@@ -88,6 +87,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
+                        -Dfile.encoding=${project.build.sourceEncoding}
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <systemProperties>
@@ -113,6 +113,18 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.1</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <release>${maven.compiler.source}</release>
+                </configuration>
             </plugin>
         </plugins>
     </build>
