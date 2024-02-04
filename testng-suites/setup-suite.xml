@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Setup Suite">
+    <test name="Setup Teamcity Server Test">
+        <classes>
+            <class name="com.github.dtitar.teamcity.ui.SetupTest"/>
+        </classes>
+    </test>
+</suite>
