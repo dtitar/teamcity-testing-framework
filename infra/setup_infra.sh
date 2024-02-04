@@ -12,9 +12,9 @@ workdir_names=($teamcity_server_workdir $teamcity_agent_workdir $selenoid_workdi
 container_names=($teamcity_server_container_name $teamcity_agent_container_name $selenoid_container_name $selenoid_ui_container_name)
 
 ####################
-echo "Request ip"
+echo "Request IP"
 export ips=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
-export ip=${ips%%$'\n'*}
+export ip="${ips%%$'\n'*}"
 echo "Current IP: $ip"
 
 ####################
@@ -45,6 +45,14 @@ docker run -d --name $teamcity_server_container_name  \
 echo "Teamcity Server is running..."
 
 ####################
+#echo "Start teamcity agent"
+#
+#cd .. && cd $teamcity_agent_workdir
+#docker run -d -e SERVER_URL="$ip" -v $(pwd)/conf:/data/teamcity-agent/conf --name $teamcity_agent_container_name jetbrains/teamcity-agent
+#
+#echo "Teamcity Agent is running..."
+
+####################
 echo "Start selenoid"
 
 cd .. && cd $selenoid_workdir
@@ -69,7 +77,7 @@ done
 ####################
 echo "Start selenoid-ui"
 
-docker run -d--name $selenoid_ui_container_name                                 \
+docker run -d --name $selenoid_ui_container_name                                 \
             -p 80:8080 aerokube/selenoid-ui:latest-release --selenoid-uri "http://$ip:4444"
 
 ####################
@@ -80,14 +88,13 @@ mvn clean test -Dtest=SetupTest#startUpTest
 
 ####################
 echo "Parse superuser token"
-
-superuser_token=$(grep -o 'Super user authentication token: [0-9]*' $teamcity_tests_directory/infra/$workdir/$teamcity_server_workdir/logs/teamcity-server.log | awk '{print $NF}')
+superuser_token=$(grep -o 'Super user authentication token: [0-9]*' $teamcity_tests_directory/$workdir/$teamcity_server_workdir/logs/teamcity-server.log | awk '{print $NF}')
 echo "Super user token: $superuser_token"
 
 ####################
 echo "Run system tests"
 
-echo "host=$ip:8111\nsuperUserToken=$superuser_token\nremote=http://$ip:4444/wd/hub\nbrowser=firefox" > $teamcity_tests_directory/src/main/resources/config.properties
+echo -e "host=$ip:8111\nsuperUserToken=$superuser_token\nremote=http://$ip:4444/wd/hub\nbrowser=firefox" > $teamcity_tests_directory/src/main/resources/config.properties
 cat $teamcity_tests_directory/src/main/resources/config.properties
 
 echo "Run API tests"
