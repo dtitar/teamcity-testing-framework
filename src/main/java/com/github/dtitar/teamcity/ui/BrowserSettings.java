@@ -32,8 +32,8 @@ public class BrowserSettings {
         Configuration.browserCapabilities.setCapability("selenoid:options", getSelenoidOptions());
     }
 
-    private static Map<String, Boolean> getSelenoidOptions() {
-        Map<String, Boolean> options = new HashMap<>();
+    private static Map<String,Object> getSelenoidOptions() {
+        Map<String, Object> options = new HashMap<>();
         options.put("enableVNC", true);
         options.put("enableLog", true);
         return options;
