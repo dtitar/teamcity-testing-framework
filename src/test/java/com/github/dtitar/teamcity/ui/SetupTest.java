@@ -1,16 +1,29 @@
 package com.github.dtitar.teamcity.ui;
 
-import com.codeborne.selenide.Condition;
+import com.github.dtitar.teamcity.ui.pages.AgentPage;
+import com.github.dtitar.teamcity.ui.pages.LoginAsSuperUserPage;
 import com.github.dtitar.teamcity.ui.pages.StartUpPage;
 import org.testng.annotations.Test;
 
-public class SetupTest extends BaseUiTest{
+import static com.codeborne.selenide.Condition.text;
+
+public class SetupTest extends BaseUiTest {
 
     @Test
     public void startUpTest() {
         new StartUpPage().open()
                 .setupTeamCityServer()
                 .getHeader()
-                .shouldHave(Condition.text("Create Administrator Account"));
+                .shouldHave(text("Create Administrator Account"));
+    }
+
+    @Test
+    public void setupTeamCityAgentTest() {
+        new LoginAsSuperUserPage().open()
+                .login();
+        new AgentPage().open(1)
+                .authorizeAgent()
+                .getAgentAuthorizationStatus()
+                .shouldHave(text("Authorized"));
     }
 }
