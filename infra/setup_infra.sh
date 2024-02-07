@@ -45,14 +45,6 @@ docker run -d --name $teamcity_server_container_name  \
 echo "Teamcity Server is running..."
 
 ####################
-#echo "Start teamcity agent"
-#
-#cd .. && cd $teamcity_agent_workdir
-#docker run -d -e SERVER_URL="$ip" -v $(pwd)/conf:/data/teamcity-agent/conf --name $teamcity_agent_container_name jetbrains/teamcity-agent
-#
-#echo "Teamcity Agent is running..."
-
-####################
 echo "Start selenoid"
 
 cd .. && cd $selenoid_workdir
@@ -97,8 +89,24 @@ echo "Run system tests"
 echo -e "host=$ip:8111\nsuperUserToken=$superuser_token\nremote=http://$ip:4444/wd/hub\nbrowser=firefox" > $teamcity_tests_directory/src/main/resources/config.properties
 cat $teamcity_tests_directory/src/main/resources/config.properties
 
-echo "Run API tests"
-mvn test -DsuiteXmlFile=testng-suites/api-suite.xml
+####################
+echo "Start teamcity agent"
 
-echo "Run UI tests"
-mvn test -DsuiteXmlFile=testng-suites/ui-suite.xml
+cd $workdir && cd $teamcity_agent_workdir
+docker run -d -e SERVER_URL="http://$ip:8111" \
+    -v $(pwd)/conf:/data/teamcity-agent/conf --name $teamcity_agent_container_name \
+    jetbrains/teamcity-agent
+
+echo "Teamcity Agent is running..."
+
+####################
+echo "Setup teamcity agent"
+
+cd .. && cd ..
+mvn test -Dtest=SetupTest#setupTeamCityAgentTest
+
+#echo "Run API tests"
+#mvn test -DsuiteXmlFile=testng-suites/api-suite.xml
+#
+#echo "Run UI tests"
+#mvn test -DsuiteXmlFile=testng-suites/ui-suite.xml
