@@ -24,6 +24,7 @@
         <assertj-core.version>3.24.2</assertj-core.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <allure-maven.version>2.12.0</allure-maven.version>
+        <suiteXmlFile>setup-suite.xml</suiteXmlFile>
     </properties>
 
     <dependencies>
