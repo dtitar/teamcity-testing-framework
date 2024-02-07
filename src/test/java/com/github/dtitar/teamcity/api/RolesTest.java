@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.containsString;
 
 public class RolesTest extends BaseApiTest {
 
-    @Test
+    @Test(groups = "regress")
     public void unauthorizedUserShouldNotHaveRightsToCreateProject() {
         var testData = testDataStorage.addTestData();
 
