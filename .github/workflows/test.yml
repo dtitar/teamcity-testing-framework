@@ -24,13 +24,13 @@ jobs:
         run: echo "host=$HOST:8111" >> src/main/resources/config.properties
 
       - name: Pull Selenoid Chrome
-        run: docker pull selenoid/vnc_chrome:119.0
+        run: docker pull selenoid/vnc_firefox:119.0
 
       - name: Run Selenoid
         run: |
           docker run -d --name selenoid \
           -v /var/run/docker.sock:/var/run/docker.sock \
-          -v $(pwd)/config/:/etc/selenoid/:ro \
+          -v $(pwd)/infra/:/etc/selenoid/:ro \
           -p 4444:4444 \
           aerokube/selenoid
 
