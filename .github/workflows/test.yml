@@ -74,5 +74,8 @@ jobs:
       - name: Set up TeamCity agent
         run: ./mvnw test -Dtest=SetupTest#setupTeamCityAgentTest
 
-      - name: Run tests
-        run: ./mvnw test -Dgroups=regress
+      - name: Run api tests
+        run: ./mvnw test -DsuiteXmlFile=testng-suites/api-suite.xml
+
+      - name: Run ui tests
+        run: ./mvnw test -DsuiteXmlFile=testng-suites/ui-suite.xml
