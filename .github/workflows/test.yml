@@ -80,6 +80,9 @@ jobs:
       - name: Run ui tests
         run: ./mvnw test -DsuiteXmlFile=ui-suite.xml
 
+      - name: Print project dir
+        run: pwd && ls -R
+
       - name: Load test report history
         uses: actions/checkout@v4
         if: always()
@@ -103,6 +106,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
-
-      - name: Print project dir
-        run: ls -R
