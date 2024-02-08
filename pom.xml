@@ -99,7 +99,7 @@
                     </systemProperties>
                     <suiteXmlFiles>
                         <!-- Specify the path to your XML file here -->
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>testng-suites/${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
