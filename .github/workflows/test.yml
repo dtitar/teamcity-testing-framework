@@ -81,7 +81,7 @@ jobs:
         run: ./mvnw test -DsuiteXmlFile=ui-suite.xml
 
       - name: Load test report history
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: always()
         continue-on-error: true
         with:
@@ -94,7 +94,7 @@ jobs:
         with:
           gh_pages: gh-pages
           allure_history: allure-history
-          allure_results: build/allure-results
+          allure_results: target/allure-results
 
       - name: Publish test report
         uses: peaceiris/actions-gh-pages@v3
@@ -103,3 +103,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+
+      - name: Print project dir
+        run: ls -R
