@@ -15,6 +15,7 @@ public class LoginAsSuperUserPage extends Page {
 
     public LoginAsSuperUserPage open() {
         Selenide.open(LOGIN_AS_SUPER_USER_PAGE_URL);
+        waitUntilPageIsLoaded();
         return this;
     }
 
