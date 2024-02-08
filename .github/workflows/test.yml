@@ -25,6 +25,11 @@ jobs:
           echo "host=$HOST:8111" >> src/main/resources/config.properties \
           && cat src/main/resources/config.properties
 
+      - name: Set up remote config property
+        run: |
+          echo "remote=$HOST:8111/wd/hub" >> src/main/resources/config.properties \
+          && cat src/main/resources/config.properties
+
       - name: Pull Selenoid Firefox
         run: docker pull selenoid/vnc_firefox:119.0
 
@@ -53,7 +58,9 @@ jobs:
         run: echo "SUPER_USER_TOKEN=$(docker logs teamcity-server | grep 'Super user authentication token' | tail -n 1 | awk '{print $6}')" >> $GITHUB_ENV
 
       - name: Set up superUserToken config property
-        run: echo "superUserToken=$SUPER_USER_TOKEN" >> src/main/resources/config.properties
+        run: | 
+          echo "superUserToken=$SUPER_USER_TOKEN" >> src/main/resources/config.properties \
+          && cat src/main/resources/config.properties
 
       - name: Run TeamCity agent
         run: |

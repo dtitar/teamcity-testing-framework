@@ -14,7 +14,7 @@ import static java.lang.String.format;
 public class BaseUiTest extends BaseTest {
     @BeforeSuite
     public void setupUiTests() {
-        Configuration.browser = "firefox";
+        Configuration.browser = Config.getProperty("browser");
         Configuration.baseUrl = format("http://%s", Config.getProperty("host"));
         Configuration.remote=Config.getProperty("remote");
         Configuration.reportsFolder = "target/surefire-reports";
