@@ -27,7 +27,8 @@ jobs:
 
       - name: Set up remote config property
         run: |
-          echo "remote=http://$HOST:8111/wd/hub" >> src/main/resources/config.properties \
+#          echo "remote=http://$HOST:8111/wd/hub" >> src/main/resources/config.properties \
+          echo "remote=http://localhost:4444/wd/hub" >> src/main/resources/config.properties \
           && cat src/main/resources/config.properties
 
       - name: Pull Selenoid Firefox
