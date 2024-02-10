@@ -73,6 +73,12 @@ docker run -d --name $selenoid_ui_container_name                                
             -p 80:8080 aerokube/selenoid-ui:latest-release --selenoid-uri "http://$ip:4444"
 
 ####################
+echo "Create config.properties"
+
+echo -e "host=$ip:8111\nremote=http://$ip:4444/wd/hub\nbrowser=firefox\nvideoStorage=" > $teamcity_tests_directory/src/main/resources/config.properties
+cat $teamcity_tests_directory/src/main/resources/config.properties
+
+####################
 echo "Setup teamcity server"
 
 cd .. && cd ..
@@ -84,9 +90,9 @@ superuser_token=$(grep -o 'Super user authentication token: [0-9]*' $teamcity_te
 echo "Super user token: $superuser_token"
 
 ####################
-echo "Run system tests"
+echo "Add superUserToken to config.properties"
 
-echo -e "host=$ip:8111\nsuperUserToken=$superuser_token\nremote=http://$ip:4444/wd/hub\nbrowser=firefox" > $teamcity_tests_directory/src/main/resources/config.properties
+echo -e "superUserToken=$superuser_token" >> $teamcity_tests_directory/src/main/resources/config.properties
 cat $teamcity_tests_directory/src/main/resources/config.properties
 
 ####################
