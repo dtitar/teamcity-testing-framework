@@ -29,7 +29,7 @@ public class CreateBuildTypePage extends Page {
     }
 
     public CreateBuildTypePage createBuildTypeByUrl(String repositoryUrl) {
-        fromRepositoryUrlTab.click();
+        fromRepositoryUrlTab.shouldBe(visible, Duration.ofSeconds(15)).click();
         repositoryUrlInput.setValue(repositoryUrl);
         submit();
         return this;
