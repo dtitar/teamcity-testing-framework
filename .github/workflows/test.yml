@@ -25,6 +25,11 @@ jobs:
           echo "host=$HOST:8111" >> src/main/resources/config.properties \
           && cat src/main/resources/config.properties
 
+      - name: Set up browser property
+        run: |
+          echo "browser=firefox" >> src/main/resources/config.properties \
+          && cat src/main/resources/config.properties    
+
       - name: Set up remote config property
         run: |
           echo "remote=http://$HOST:4444/wd/hub" >> src/main/resources/config.properties \
