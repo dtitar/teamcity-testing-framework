@@ -33,11 +33,16 @@ jobs:
       - name: Pull Selenoid Firefox
         run: docker pull selenoid/vnc_firefox:119.0
 
+      - name: Pull Selenoid Video Container
+        run: docker pull selenoid/video-recorder:latest-release
+
       - name: Run Selenoid
         run: |
           docker run -d --name selenoid \
           -v /var/run/docker.sock:/var/run/docker.sock \
           -v $(pwd)/infra/:/etc/selenoid/:ro \
+          -v $(pwd)/infra/video/:/opt/selenoid/video/            \
+          -e OVERRIDE_VIDEO_OUTPUT_DIR=$(pwd)/infra/video/       \
           -p 4444:4444 \
           aerokube/selenoid
 
