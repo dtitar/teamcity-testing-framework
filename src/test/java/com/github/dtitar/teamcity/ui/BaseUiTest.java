@@ -17,6 +17,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import static com.github.dtitar.teamcity.ui.BrowserSettings.isVideoOn;
 import static java.lang.String.format;
 
 public class BaseUiTest extends BaseTest {
@@ -43,7 +44,7 @@ public class BaseUiTest extends BaseTest {
     public void afterUiTest(ITestResult result) {
         log.info(format("Test '%s' result is: %s", result.getTestName(), result.getStatus()));
         log.info(format("Test session id is: %s", Selenide.sessionId()));
-        if (result.getStatus() == ITestResult.FAILURE) {
+        if (result.getStatus() == ITestResult.FAILURE && isVideoOn()) {
             BrowserSettings.addVideo(String.valueOf(Selenide.sessionId()));
         }
     }

@@ -73,7 +73,7 @@ public class BrowserSettings {
     }
 
     private static URL getVideoUrl(String sessionId) {
-        String videoUrl = format("http://%s/video/%s.mp4", Config.getProperty("host"), sessionId);
+        String videoUrl = format("%s/%s.mp4", Config.getProperty("videoStorage"), sessionId);
         log.info("Video URL: " + videoUrl);
         try {
             return new URL(videoUrl);
@@ -82,5 +82,10 @@ public class BrowserSettings {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static boolean isVideoOn() {
+        return !Config.getProperty("videoStorage")
+                .equals("");
     }
 }
