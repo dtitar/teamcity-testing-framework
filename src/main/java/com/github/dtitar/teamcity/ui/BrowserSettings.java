@@ -15,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static java.lang.String.format;
@@ -22,6 +23,7 @@ import static java.lang.String.format;
 public class BrowserSettings {
 
     private static Logger log = LoggerFactory.getLogger(BrowserSettings.class);
+
     public static void setup(String browser) {
         Configuration.browser = browser;
 
@@ -46,11 +48,13 @@ public class BrowserSettings {
         Configuration.browserCapabilities.setCapability("selenoid:options", getSelenoidOptions());
     }
 
-    private static Map<String,Object> getSelenoidOptions() {
+    private static Map<String, Object> getSelenoidOptions() {
         Map<String, Object> options = new HashMap<>();
         options.put("enableVNC", true);
         options.put("enableLog", true);
-        options.put("enableVideo", true);
+        if (isVideoOn()) {
+            options.put("enableVideo", true);
+        }
         return options;
     }
 
@@ -85,7 +89,8 @@ public class BrowserSettings {
     }
 
     public static boolean isVideoOn() {
-        return !Config.getProperty("videoStorage")
-                .equals("");
+        return Optional.of(!Config.getProperty("videoStorage")
+                        .isEmpty())
+                .orElse(false);
     }
 }
