@@ -10,10 +10,11 @@ import static com.codeborne.selenide.Selenide.element;
 public class LicenseAgreementPage extends Page {
 
     private SelenideElement acceptLicenceAgreementCheckBox = element(Selectors.byId("accept"));
-    private SelenideElement continueButton = element(Selectors.byAttribute("name","Continue"));
+    private SelenideElement continueButton = element(Selectors.byAttribute("name", "Continue"));
 
     public SetupAdminPage acceptLicenceAgreement() {
-        acceptLicenceAgreementCheckBox.click();
+        acceptLicenceAgreementCheckBox.scrollTo()
+                .click();
         acceptLicenceAgreementCheckBox.shouldBe(checked);
         continueButton.shouldBe(enabled);
         submit();
