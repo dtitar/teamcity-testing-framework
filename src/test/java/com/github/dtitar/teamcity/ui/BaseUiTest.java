@@ -17,6 +17,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.time.Duration;
+
 import static com.github.dtitar.teamcity.ui.BrowserSettings.isVideoOn;
 import static java.lang.String.format;
 
@@ -31,6 +33,7 @@ public class BaseUiTest extends BaseTest {
         Configuration.remote = Config.getProperty("remote");
         Configuration.reportsFolder = "target/surefire-reports";
         Configuration.downloadsFolder = "target/downloads";
+        Configuration.timeout = Duration.ofSeconds(15).toMillis();;
         BrowserSettings.setup(Config.getProperty("browser"));
     }
 

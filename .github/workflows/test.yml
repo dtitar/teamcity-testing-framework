@@ -95,8 +95,8 @@ jobs:
       - name: Run ui tests
         run: ./mvnw test -DsuiteXmlFile=ui-suite.xml
 
-      - name: Print project dir
-        run: pwd && ls -R
+      - name: Print video dir
+        run: ls $(pwd)/infra/video
 
       - name: Load test report history
         uses: actions/checkout@v4
