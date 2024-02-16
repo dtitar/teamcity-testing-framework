@@ -117,7 +117,7 @@ echo "Teamcity Agent is running..."
 echo "Setup teamcity agent"
 
 cd .. && cd ..
-mvn test -Dtest=SetupTest#setupTeamCityAgentTest
+mvn test -Dtest=SetupAgentTest#authorizeAgent
 
 echo "Run API tests"
 mvn test -DsuiteXmlFile=api-suite.xml
