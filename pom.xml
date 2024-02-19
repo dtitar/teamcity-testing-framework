@@ -24,6 +24,8 @@
         <assertj-core.version>3.24.2</assertj-core.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <allure-maven.version>2.12.0</allure-maven.version>
+        <awaitility.version>4.2.0</awaitility.version>
+        <suiteXmlFile>default-suite.xml</suiteXmlFile>
     </properties>
 
     <dependencies>
@@ -77,6 +79,13 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>${awaitility.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -98,7 +107,7 @@
                     </systemProperties>
                     <suiteXmlFiles>
                         <!-- Specify the path to your XML file here -->
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>testng-suites/${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

@@ -45,17 +45,15 @@ docker run -d --name $teamcity_server_container_name  \
 echo "Teamcity Server is running..."
 
 ####################
-#echo "Start teamcity agent"
-#
-#cd .. && cd $teamcity_agent_workdir
-#docker run -d -e SERVER_URL="$ip" -v $(pwd)/conf:/data/teamcity-agent/conf --name $teamcity_agent_container_name jetbrains/teamcity-agent
-#
-#echo "Teamcity Agent is running..."
+echo "Pull Selenoid Video Container"
+
+docker pull selenoid/video-recorder:latest-release
+cd .. && cd $selenoid_workdir
+mkdir video
 
 ####################
 echo "Start selenoid"
 
-cd .. && cd $selenoid_workdir
 mkdir config
 cp $teamcity_tests_directory/infra/browsers.json config/
 
@@ -64,6 +62,8 @@ docker run -d                                   \
             -p 4444:4444                                    \
             -v /var/run/docker.sock:/var/run/docker.sock    \
             -v $(pwd)/config/:/etc/selenoid/:ro              \
+            -v $(pwd)/video/:/opt/selenoid/video/            \
+            -e OVERRIDE_VIDEO_OUTPUT_DIR=$(pwd)/video/       \
     aerokube/selenoid:latest-release
 
 image_names=($(awk -F'"' '/"image": "/{print $4}' "$(pwd)/config/browsers.json"))
@@ -81,6 +81,12 @@ docker run -d --name $selenoid_ui_container_name                                
             -p 80:8080 aerokube/selenoid-ui:latest-release --selenoid-uri "http://$ip:4444"
 
 ####################
+echo "Create config.properties"
+
+echo -e "host=$ip:8111\nremote=http://$ip:4444/wd/hub\nbrowser=firefox\nvideoStorage=http://$ip:4444/video" > $teamcity_tests_directory/src/main/resources/config.properties
+cat $teamcity_tests_directory/src/main/resources/config.properties
+
+####################
 echo "Setup teamcity server"
 
 cd .. && cd ..
@@ -92,13 +98,29 @@ superuser_token=$(grep -o 'Super user authentication token: [0-9]*' $teamcity_te
 echo "Super user token: $superuser_token"
 
 ####################
-echo "Run system tests"
+echo "Add superUserToken to config.properties"
 
-echo -e "host=$ip:8111\nsuperUserToken=$superuser_token\nremote=http://$ip:4444/wd/hub\nbrowser=firefox" > $teamcity_tests_directory/src/main/resources/config.properties
+echo -e "superUserToken=$superuser_token" >> $teamcity_tests_directory/src/main/resources/config.properties
 cat $teamcity_tests_directory/src/main/resources/config.properties
 
+####################
+echo "Start teamcity agent"
+
+cd $workdir && cd $teamcity_agent_workdir
+docker run -d -e SERVER_URL="http://$ip:8111" \
+    -v $(pwd)/conf:/data/teamcity-agent/conf --name $teamcity_agent_container_name \
+    jetbrains/teamcity-agent
+
+echo "Teamcity Agent is running..."
+
+####################
+echo "Setup teamcity agent"
+
+cd .. && cd ..
+mvn test -Dtest=SetupAgentTest#authorizeAgent
+
 echo "Run API tests"
-mvn test -DsuiteXmlFile=testng-suites/api-suite.xml
+mvn test -DsuiteXmlFile=api-suite.xml
 
 echo "Run UI tests"
-mvn test -DsuiteXmlFile=testng-suites/ui-suite.xml
+mvn test -DsuiteXmlFile=ui-suite.xml

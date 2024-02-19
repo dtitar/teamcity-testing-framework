@@ -18,7 +18,6 @@ public class TestData {
     public static final int MIN_PROJECT_ID_LENGTH = 1;
     public static final int MAX_PROJECT_ID_LENGTH = 225;
     public static final String REPOSITORY_URL = "https://github.com/dtitar/workshop-test-automation-from-scratch";
-
     private User user;
     private NewProjectDescription project;
     private BuildType buildType;

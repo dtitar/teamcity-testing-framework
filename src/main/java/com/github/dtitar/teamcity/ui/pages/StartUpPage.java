@@ -10,6 +10,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.element;
 
 public class StartUpPage extends Page {
@@ -19,7 +20,8 @@ public class StartUpPage extends Page {
     private SelenideElement startUpHeader = $(By.tagName("h1"));
     private SelenideElement proceedButton = element(Selectors.byId("proceedButton"));
     private SelenideElement startUpLoader = element(Selectors.byId("stageDescription"));
-    private SelenideElement acceptLicenceAgreement = element(Selectors.byId("stageDescription"));
+    private SelenideElement creatingANewDataBaseMessage = $x("//*[text()='Creating a new database']");
+    private SelenideElement initializingTeamCityServerComponentsMessage = $x("//*[text()='Initializing TeamCity server components']");
 
 
     public StartUpPage open() {
@@ -44,11 +46,12 @@ public class StartUpPage extends Page {
     private LicenseAgreementPage proceedDatabaseConnectionSetupScreen() {
         startUpHeader.shouldHave(text("Database connection setup"));
         proceedButton.click();
-        waitUntilStartUpPageIsLoaded();
+        waitUntilTeamCityComponentsLoaded();
         return new LicenseAgreementPage();
     }
 
-    private void waitUntilStartUpPageIsLoaded() {
-        startUpLoader.shouldNotBe(visible, Duration.ofMinutes(2));
+    private void waitUntilTeamCityComponentsLoaded() {
+        creatingANewDataBaseMessage.shouldNotBe(visible, Duration.ofSeconds(30));
+        initializingTeamCityServerComponentsMessage.shouldNotBe(visible, Duration.ofMinutes(3));
     }
 }

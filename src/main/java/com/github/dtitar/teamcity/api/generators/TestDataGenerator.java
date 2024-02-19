@@ -8,7 +8,6 @@ import com.github.dtitar.teamcity.api.models.Role;
 import com.github.dtitar.teamcity.api.models.Roles;
 import com.github.dtitar.teamcity.api.models.User;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class TestDataGenerator {
