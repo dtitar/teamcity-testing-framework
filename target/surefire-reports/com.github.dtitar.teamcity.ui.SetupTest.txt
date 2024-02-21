@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.github.dtitar.teamcity.ui.SetupTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.51 s -- in com.github.dtitar.teamcity.ui.SetupTest
