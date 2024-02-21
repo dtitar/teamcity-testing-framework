@@ -122,8 +122,8 @@ mvn test -Dtest=SetupAgentTest#authorizeAgent
 echo "Run API tests"
 mvn test -DsuiteXmlFile=api-suite.xml
 
-#echo "Run UI tests"
-#mvn test -DsuiteXmlFile=ui-suite.xml
+echo "Run UI tests"
+mvn test -DsuiteXmlFile=ui-suite.xml
 
 echo "Add swagger-coverage-report"
 chmod +x .swagger-coverage-commandline/bin/swagger-coverage-commandline && \
