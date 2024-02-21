@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="87.115" tests="4" errors="0" skipped="0" failures="2">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/test-classes:/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/classes:/home/runner/.m2/repository/io/rest-assured/rest-assured/5.3.2/rest-assured-5.3.2.jar:/home/runner/.m2/repository/org/apache/groovy/groovy/4.0.11/groovy-4.0.11.jar:/home/runner/.m2/repository/org/apache/groovy/groovy-xml/4.0.11/groovy-xml-4.0.11.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/home/runner/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/runner/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/home/runner/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/runner/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/home/runner/.m2/repository/io/rest-assured/json-path/5.3.2/json-path-5.3.2.jar:/home/runner/.m2/repository/org/apache/groovy/groovy-json/4.0.11/groovy-json-4.0.11.jar:/home/runner/.m2/repository/io/rest-assured/rest-assured-common/5.3.2/rest-assured-common-5.3.2.jar:/home/runner/.m2/repository/io/rest-assured/xml-path/5.3.2/xml-path-5.3.2.jar:/home/runner/.m2/repository/com/codeborne/selenide/7.0.4/selenide-7.0.4.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-java/4.16.1/selenium-java-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-api/4.16.1/selenium-api-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.16.1/selenium-chrome-driver-4.16.1.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.16.1/selenium-chromium-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-json/4.16.1/selenium-json-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.16.1/selenium-manager-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v118/4.16.1/selenium-devtools-v118-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v119/4.16.1/selenium-devtools-v119-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v120/4.16.1/selenium-devtools-v120-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v85/4.16.1/selenium-devtools-v85-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.16.1/selenium-edge-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.16.1/selenium-firefox-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-http/4.16.1/selenium-http-4.16.1.jar:/home/runner/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.16.1/selenium-ie-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.16.1/selenium-remote-driver-4.16.1.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-api/1.28.0/opentelemetry-api-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-context/1.28.0/opentelemetry-context-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.28.0/opentelemetry-exporter-logging-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.28.0/opentelemetry-sdk-metrics-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-extension-incubator/1.28.0-alpha/opentelemetry-extension-incubator-1.28.0-alpha.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.28.0/opentelemetry-sdk-logs-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.28.0/opentelemetry-sdk-common-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.28.0/opentelemetry-sdk-extension-autoconfigure-spi-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.28.0/opentelemetry-sdk-extension-autoconfigure-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-api-events/1.28.0-alpha/opentelemetry-api-events-1.28.0-alpha.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.28.0/opentelemetry-sdk-trace-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.28.0/opentelemetry-sdk-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-semconv/1.28.0-alpha/opentelemetry-semconv-1.28.0-alpha.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-os/4.16.1/selenium-os-4.16.1.jar:/home/runner/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.16.1/selenium-safari-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-support/4.16.1/selenium-support-4.16.1.jar:/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/runner/.m2/repository/com/codeborne/selenide-core/7.0.4/selenide-core-7.0.4.jar:/home/runner/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/runner/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.3/httpclient5-5.3.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.2.4/httpcore5-5.2.4.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.2.4/httpcore5-h2-5.2.4.jar:/home/runner/.m2/repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre.jar:/home/runner/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/runner/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/runner/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/runner/.m2/repository/org/checkerframework/checker-qual/3.37.0/checker-qual-3.37.0.jar:/home/runner/.m2/repository/com/google/errorprone/error_prone_annotations/2.21.1/error_prone_annotations-2.21.1.jar:/home/runner/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/home/runner/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar:/home/runner/.m2/repository/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar:/home/runner/.m2/repository/io/qameta/allure/allure-testng/2.24.0/allure-testng-2.24.0.jar:/home/runner/.m2/repository/io/qameta/allure/allure-java-commons/2.24.0/allure-java-commons-2.24.0.jar:/home/runner/.m2/repository/io/qameta/allure/allure-model/2.24.0/allure-model-2.24.0.jar:/home/runner/.m2/repository/io/qameta/allure/allure-test-filter/2.24.0/allure-test-filter-2.24.0.jar:/home/runner/.m2/repository/com/codeborne/selenide-testng/7.0.4/selenide-testng-7.0.4.jar:/home/runner/.m2/repository/io/qameta/allure/allure-selenide/2.24.0/allure-selenide-2.24.0.jar:/home/runner/.m2/repository/org/testng/testng/7.7.1/testng-7.7.1.jar:/home/runner/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/home/runner/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/home/runner/.m2/repository/org/slf4j/slf4j-simple/2.0.7/slf4j-simple-2.0.7.jar:/home/runner/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/home/runner/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/home/runner/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar:/home/runner/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/home/runner/.m2/repository/com/github/viclovsky/swagger-coverage-rest-assured/1.5.0/swagger-coverage-rest-assured-1.5.0.jar:/home/runner/.m2/repository/com/github/viclovsky/swagger-coverage-commons/1.5.0/swagger-coverage-commons-1.5.0.jar:/home/runner/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:/home/runner/.m2/repository/io/swagger/core/v3/swagger-core/2.1.10/swagger-core-2.1.10.jar:/home/runner/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar:/home/runner/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar:/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar:/home/runner/.m2/repository/io/swagger/core/v3/swagger-annotations/2.1.10/swagger-annotations-2.1.10.jar:/home/runner/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/home/runner/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar:/home/runner/.m2/repository/ch/qos/logback/logback-core/1.2.10/logback-core-1.2.10.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.3/jackson-core-2.12.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.3/jackson-databind-2.12.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar:/home/runner/.m2/repository/org/yaml/snakeyaml/1.24/snakeyaml-1.24.jar:/home/runner/.m2/repository/io/swagger/swagger-models/1.6.2/swagger-models-1.6.2.jar:/home/runner/.m2/repository/io/swagger/swagger-annotations/1.6.2/swagger-annotations-1.6.2.jar:/home/runner/.m2/repository/io/swagger/core/v3/swagger-models/2.1.10/swagger-models-2.1.10.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.jar:"/>
+    <property name="java.vm.vendor" value="Azul Systems, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://www.azul.com/"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="suiteXmlFile" value="ui-suite.xml"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/opt/hostedtoolcache/Java_Zulu_jdk/17.0.10-7/x64/lib"/>
+    <property name="sun.java.command" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/surefire/surefirebooter-20240221200148079_3.jar /home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/surefire 2024-02-21T20-01-47_827-jvmRun1 surefire-20240221200148079_1tmp surefire_0-20240221200148079_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/test-classes:/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/classes:/home/runner/.m2/repository/io/rest-assured/rest-assured/5.3.2/rest-assured-5.3.2.jar:/home/runner/.m2/repository/org/apache/groovy/groovy/4.0.11/groovy-4.0.11.jar:/home/runner/.m2/repository/org/apache/groovy/groovy-xml/4.0.11/groovy-xml-4.0.11.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/home/runner/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/runner/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/home/runner/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/runner/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/home/runner/.m2/repository/io/rest-assured/json-path/5.3.2/json-path-5.3.2.jar:/home/runner/.m2/repository/org/apache/groovy/groovy-json/4.0.11/groovy-json-4.0.11.jar:/home/runner/.m2/repository/io/rest-assured/rest-assured-common/5.3.2/rest-assured-common-5.3.2.jar:/home/runner/.m2/repository/io/rest-assured/xml-path/5.3.2/xml-path-5.3.2.jar:/home/runner/.m2/repository/com/codeborne/selenide/7.0.4/selenide-7.0.4.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-java/4.16.1/selenium-java-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-api/4.16.1/selenium-api-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.16.1/selenium-chrome-driver-4.16.1.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.16.1/selenium-chromium-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-json/4.16.1/selenium-json-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.16.1/selenium-manager-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v118/4.16.1/selenium-devtools-v118-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v119/4.16.1/selenium-devtools-v119-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v120/4.16.1/selenium-devtools-v120-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v85/4.16.1/selenium-devtools-v85-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.16.1/selenium-edge-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.16.1/selenium-firefox-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-http/4.16.1/selenium-http-4.16.1.jar:/home/runner/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.16.1/selenium-ie-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.16.1/selenium-remote-driver-4.16.1.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-api/1.28.0/opentelemetry-api-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-context/1.28.0/opentelemetry-context-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.28.0/opentelemetry-exporter-logging-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.28.0/opentelemetry-sdk-metrics-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-extension-incubator/1.28.0-alpha/opentelemetry-extension-incubator-1.28.0-alpha.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.28.0/opentelemetry-sdk-logs-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.28.0/opentelemetry-sdk-common-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.28.0/opentelemetry-sdk-extension-autoconfigure-spi-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.28.0/opentelemetry-sdk-extension-autoconfigure-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-api-events/1.28.0-alpha/opentelemetry-api-events-1.28.0-alpha.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.28.0/opentelemetry-sdk-trace-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.28.0/opentelemetry-sdk-1.28.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-semconv/1.28.0-alpha/opentelemetry-semconv-1.28.0-alpha.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-os/4.16.1/selenium-os-4.16.1.jar:/home/runner/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.16.1/selenium-safari-driver-4.16.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-support/4.16.1/selenium-support-4.16.1.jar:/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/runner/.m2/repository/com/codeborne/selenide-core/7.0.4/selenide-core-7.0.4.jar:/home/runner/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/runner/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.3/httpclient5-5.3.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.2.4/httpcore5-5.2.4.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.2.4/httpcore5-h2-5.2.4.jar:/home/runner/.m2/repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre.jar:/home/runner/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/runner/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/runner/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/runner/.m2/repository/org/checkerframework/checker-qual/3.37.0/checker-qual-3.37.0.jar:/home/runner/.m2/repository/com/google/errorprone/error_prone_annotations/2.21.1/error_prone_annotations-2.21.1.jar:/home/runner/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/home/runner/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar:/home/runner/.m2/repository/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar:/home/runner/.m2/repository/io/qameta/allure/allure-testng/2.24.0/allure-testng-2.24.0.jar:/home/runner/.m2/repository/io/qameta/allure/allure-java-commons/2.24.0/allure-java-commons-2.24.0.jar:/home/runner/.m2/repository/io/qameta/allure/allure-model/2.24.0/allure-model-2.24.0.jar:/home/runner/.m2/repository/io/qameta/allure/allure-test-filter/2.24.0/allure-test-filter-2.24.0.jar:/home/runner/.m2/repository/com/codeborne/selenide-testng/7.0.4/selenide-testng-7.0.4.jar:/home/runner/.m2/repository/io/qameta/allure/allure-selenide/2.24.0/allure-selenide-2.24.0.jar:/home/runner/.m2/repository/org/testng/testng/7.7.1/testng-7.7.1.jar:/home/runner/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/home/runner/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/home/runner/.m2/repository/org/slf4j/slf4j-simple/2.0.7/slf4j-simple-2.0.7.jar:/home/runner/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/home/runner/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/home/runner/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar:/home/runner/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/home/runner/.m2/repository/com/github/viclovsky/swagger-coverage-rest-assured/1.5.0/swagger-coverage-rest-assured-1.5.0.jar:/home/runner/.m2/repository/com/github/viclovsky/swagger-coverage-commons/1.5.0/swagger-coverage-commons-1.5.0.jar:/home/runner/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:/home/runner/.m2/repository/io/swagger/core/v3/swagger-core/2.1.10/swagger-core-2.1.10.jar:/home/runner/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar:/home/runner/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar:/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar:/home/runner/.m2/repository/io/swagger/core/v3/swagger-annotations/2.1.10/swagger-annotations-2.1.10.jar:/home/runner/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/home/runner/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar:/home/runner/.m2/repository/ch/qos/logback/logback-core/1.2.10/logback-core-1.2.10.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.3/jackson-core-2.12.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.3/jackson-databind-2.12.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar:/home/runner/.m2/repository/org/yaml/snakeyaml/1.24/snakeyaml-1.24.jar:/home/runner/.m2/repository/io/swagger/swagger-models/1.6.2/swagger-models-1.6.2.jar:/home/runner/.m2/repository/io/swagger/swagger-annotations/1.6.2/swagger-annotations-1.6.2.jar:/home/runner/.m2/repository/io/swagger/core/v3/swagger-models/2.1.10/swagger-models-2.1.10.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.jar:"/>
+    <property name="allure.results.directory" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/allure-results"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/runner"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="/opt/hostedtoolcache/Java_Zulu_jdk/17.0.10-7/x64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework/target/surefire/surefirebooter-20240221200148079_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.10+7-LTS"/>
+    <property name="user.name" value="runner"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.2.0-1019-azure"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Zulu17.48+15-CRaC-CA"/>
+    <property name="localRepository" value="/home/runner/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://www.azul.com/support/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="17.0.10"/>
+    <property name="user.dir" value="/home/runner/work/teamcity-testing-framework/teamcity-testing-framework"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Azul Systems, Inc."/>
+    <property name="java.vm.version" value="17.0.10+7-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="authorizedUserShouldBeAbleCreateProjectFromRepositoryUrl" classname="com.github.dtitar.teamcity.ui.CreateNewProjectTest" time="36.768">
+    <failure message="No value present" type="java.util.NoSuchElementException"><![CDATA[java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:143)
+	at com.github.dtitar.teamcity.ui.pages.ProjectsPage.checkProjectExist(ProjectsPage.java:33)
+	at com.github.dtitar.teamcity.ui.CreateNewProjectTest.authorizedUserShouldBeAbleCreateProjectFromRepositoryUrl(CreateNewProjectTest.java:38)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-out><![CDATA[TestData{
+user=User(username=test_PbjJSCYuXW, password=test_IEpaTebHxl, email=test_QnPSKhJyzb@gmail.com, roles=Roles(role=[Role(roleId=SYSTEM_ADMIN, scope=g, href=null)])), 
+project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_bNcBVnkDxb, id=test_BVqBkatOey, copyAllAssociatedSettings=true), 
+buildType=BuildType(id=test_FlOChSKusI, name=test_vBiRnTKkfM, project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_bNcBVnkDxb, id=test_BVqBkatOey, copyAllAssociatedSettings=true))
+}
+
+Request method:	POST
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "username": "test_PbjJSCYuXW",
+    "password": "test_IEpaTebHxl",
+    "email": "test_QnPSKhJyzb@gmail.com",
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": null
+            }
+        ]
+    }
+}
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=D617B7020FF24D11C172C6240AA6861B; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:02:05 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:01:55 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "username": "test_pbjjscyuxw",
+    "id": 32,
+    "email": "test_QnPSKhJyzb@gmail.com",
+    "href": "/app/rest/users/id:32",
+    "properties": {
+        "property": [
+            {
+                "name": "addTriggeredBuildToFavorites",
+                "value": "true"
+            },
+            {
+                "name": "plugin:vcs:anyVcs:anyVcsRoot",
+                "value": "test_PbjJSCYuXW"
+            },
+            {
+                "name": "teamcity.server.buildNumber",
+                "value": "147412"
+            }
+        ],
+        "count": 3,
+        "href": "/app/rest/users/id:32/properties"
+    },
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": "/app/rest/users/id:32/roles/SYSTEM_ADMIN/g"
+            }
+        ]
+    },
+    "groups": {
+        "count": 1,
+        "group": [
+            {
+                "key": "ALL_USERS_GROUP",
+                "name": "All Users",
+                "href": "/app/rest/userGroups/key:ALL_USERS_GROUP",
+                "description": "Contains all TeamCity users"
+            }
+        ]
+    }
+}
+]]></system-out>
+    <system-err><![CDATA[[main] INFO com.codeborne.selenide.impl.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 1 - let's create a new webdriver
+[main] INFO com.codeborne.selenide.webdriver.BrowserResizer - Set browser size to 1366x768
+[main] INFO com.codeborne.selenide.webdriver.WebDriverFactory - BrowserName=firefox Version=119.0.1 Platform=linux
+[main] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide v. 7.0.4
+[main] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenium WebDriver v. 4.16.1 build revision: 9b4c83354e
+[main] INFO com.codeborne.selenide.drivercommands.CreateDriverCommand - Created webdriver in thread 1: RemoteWebDriver -> RemoteWebDriver: firefox on linux (620a1ac9-53f7-4d54-ab75-c80c97e83410), downloadsFolder: null
+[main] INFO com.codeborne.selenide.drivercommands.DisposablesRegistry - Register WebDriverInstance[config=StaticConfig, webDriver=RemoteWebDriver: firefox on linux (620a1ac9-53f7-4d54-ab75-c80c97e83410), proxy=null, downloadsFolder=null] in 1 [size=1]
+[main] INFO com.codeborne.selenide.drivercommands.DisposablesRegistry - Add shutdown hook in 1 [size=1]
+]]></system-err>
+  </testcase>
+  <testcase name="authorizedUserShouldBeAbleCreateProjectManually" classname="com.github.dtitar.teamcity.ui.CreateNewProjectTest" time="5.464">
+    <failure message="No value present" type="java.util.NoSuchElementException"><![CDATA[java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:143)
+	at com.github.dtitar.teamcity.ui.pages.ProjectsPage.checkProjectExist(ProjectsPage.java:33)
+	at com.github.dtitar.teamcity.ui.CreateNewProjectTest.authorizedUserShouldBeAbleCreateProjectManually(CreateNewProjectTest.java:71)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-out><![CDATA[Request method:	DELETE
+Request URI:	http://test_PbjJSCYuXW:test_IEpaTebHxl@172.17.0.1:8111/app/rest/projects/id%3AtestbNcBVnkDxb
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=FA2384E5AF92D91635343E9B8D9C1F0C; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:02:50 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Date: Wed, 21 Feb 2024 20:02:40 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	DELETE
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users/username%3Atest_PbjJSCYuXW
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=8892F519857F9D03365EC292C6703B12; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:02:50 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Date: Wed, 21 Feb 2024 20:02:40 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+TestData{
+user=User(username=test_udWiQOswlA, password=test_IQDaQUDnGY, email=test_guyIIUAbgi@gmail.com, roles=Roles(role=[Role(roleId=SYSTEM_ADMIN, scope=g, href=null)])), 
+project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_PCpSBLnbmP, id=test_FmGYlaNqLl, copyAllAssociatedSettings=true), 
+buildType=BuildType(id=test_ywUcnbqWfv, name=test_bDHlpiQWIb, project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_PCpSBLnbmP, id=test_FmGYlaNqLl, copyAllAssociatedSettings=true))
+}
+
+Request method:	POST
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "username": "test_udWiQOswlA",
+    "password": "test_IQDaQUDnGY",
+    "email": "test_guyIIUAbgi@gmail.com",
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": null
+            }
+        ]
+    }
+}
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=15981447FD38CCED5260D425D185F536; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:02:50 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:02:40 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "username": "test_udwiqoswla",
+    "id": 33,
+    "email": "test_guyIIUAbgi@gmail.com",
+    "href": "/app/rest/users/id:33",
+    "properties": {
+        "property": [
+            {
+                "name": "addTriggeredBuildToFavorites",
+                "value": "true"
+            },
+            {
+                "name": "plugin:vcs:anyVcs:anyVcsRoot",
+                "value": "test_udWiQOswlA"
+            },
+            {
+                "name": "teamcity.server.buildNumber",
+                "value": "147412"
+            }
+        ],
+        "count": 3,
+        "href": "/app/rest/users/id:33/properties"
+    },
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": "/app/rest/users/id:33/roles/SYSTEM_ADMIN/g"
+            }
+        ]
+    },
+    "groups": {
+        "count": 1,
+        "group": [
+            {
+                "key": "ALL_USERS_GROUP",
+                "name": "All Users",
+                "href": "/app/rest/userGroups/key:ALL_USERS_GROUP",
+                "description": "Contains all TeamCity users"
+            }
+        ]
+    }
+}
+]]></system-out>
+    <system-err><![CDATA[[main] INFO com.github.dtitar.teamcity.ui.listeners.UiTestFailListener - Test null not succeeded, result is 2
+[main] INFO com.github.dtitar.teamcity.ui.listeners.UiTestFailListener - Adding video...
+[main] INFO com.github.dtitar.teamcity.ui.BrowserSettings - Video URL: http://172.17.0.1:4444/video/620a1ac9-53f7-4d54-ab75-c80c97e83410.mp4
+]]></system-err>
+  </testcase>
+  <testcase name="userShouldBeAbleToCreateBuildTypeByUrl" classname="com.github.dtitar.teamcity.ui.CreateNewBuildTypeTest" time="12.656">
+    <system-out><![CDATA[Request method:	DELETE
+Request URI:	http://test_PbjJSCYuXW:test_IEpaTebHxl@172.17.0.1:8111/app/rest/projects/id%3AtestbNcBVnkDxb
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 401 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=C913AE0E25E4560E0FB1E6AE32E7AC19; Path=/; HttpOnly
+WWW-Authenticate: Basic realm="TeamCity"
+Cache-Control: no-store
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:02:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Incorrect username or password.
+To login manually go to "/login.html" page
+Request method:	DELETE
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users/username%3Atest_PbjJSCYuXW
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 404 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=2DF2AD34FDBDBF9669CE4A2D150E8B6A; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:06 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: text/plain
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:02:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Responding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: User not found
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.
+Request method:	DELETE
+Request URI:	http://test_udWiQOswlA:test_IQDaQUDnGY@172.17.0.1:8111/app/rest/projects/id%3Atest_FmGYlaNqLl
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=E6DF7AE877FF3B11F4FDB1E23E50ABB1; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:06 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Date: Wed, 21 Feb 2024 20:02:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	DELETE
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users/username%3Atest_udWiQOswlA
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=3A21FA8D2DC6DA7E31F2D0AE16422211; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:06 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Date: Wed, 21 Feb 2024 20:02:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+TestData{
+user=User(username=test_AJnQGwArGb, password=test_CTWpAwHwIo, email=test_vjCwJodOOT@gmail.com, roles=Roles(role=[Role(roleId=SYSTEM_ADMIN, scope=g, href=null)])), 
+project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_RDrbouFbZv, id=test_yBgKJqrpfU, copyAllAssociatedSettings=true), 
+buildType=BuildType(id=test_BgkNzWdLTR, name=test_vFkPoVSVlW, project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_RDrbouFbZv, id=test_yBgKJqrpfU, copyAllAssociatedSettings=true))
+}
+
+Request method:	POST
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "username": "test_AJnQGwArGb",
+    "password": "test_CTWpAwHwIo",
+    "email": "test_vjCwJodOOT@gmail.com",
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": null
+            }
+        ]
+    }
+}
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=A416338187B041E7FA25A83C962C0669; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:07 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:02:56 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "username": "test_ajnqgwargb",
+    "id": 34,
+    "email": "test_vjCwJodOOT@gmail.com",
+    "href": "/app/rest/users/id:34",
+    "properties": {
+        "property": [
+            {
+                "name": "addTriggeredBuildToFavorites",
+                "value": "true"
+            },
+            {
+                "name": "plugin:vcs:anyVcs:anyVcsRoot",
+                "value": "test_AJnQGwArGb"
+            },
+            {
+                "name": "teamcity.server.buildNumber",
+                "value": "147412"
+            }
+        ],
+        "count": 3,
+        "href": "/app/rest/users/id:34/properties"
+    },
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": "/app/rest/users/id:34/roles/SYSTEM_ADMIN/g"
+            }
+        ]
+    },
+    "groups": {
+        "count": 1,
+        "group": [
+            {
+                "key": "ALL_USERS_GROUP",
+                "name": "All Users",
+                "href": "/app/rest/userGroups/key:ALL_USERS_GROUP",
+                "description": "Contains all TeamCity users"
+            }
+        ]
+    }
+}
+Request method:	POST
+Request URI:	http://test_AJnQGwArGb:test_CTWpAwHwIo@172.17.0.1:8111/app/rest/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "parentProject": {
+        "id": null,
+        "name": null,
+        "parentProjectId": null,
+        "locator": "_Root"
+    },
+    "name": "test_RDrbouFbZv",
+    "id": "test_yBgKJqrpfU",
+    "copyAllAssociatedSettings": true
+}
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=7F5E0EA9DC4B03C9C8B1313E6AD09460; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:08 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:02:57 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "id": "test_yBgKJqrpfU",
+    "name": "test_RDrbouFbZv",
+    "parentProjectId": "_Root",
+    "virtual": false,
+    "href": "/app/rest/projects/id:test_yBgKJqrpfU",
+    "webUrl": "http://localhost:8111/project.html?projectId=test_yBgKJqrpfU",
+    "parentProject": {
+        "id": "_Root",
+        "name": "<Root project>",
+        "description": "Contains all other projects",
+        "href": "/app/rest/projects/id:_Root",
+        "webUrl": "http://localhost:8111/project.html?projectId=_Root"
+    },
+    "buildTypes": {
+        "count": 0,
+        "buildType": [
+            
+        ]
+    },
+    "templates": {
+        "count": 0,
+        "buildType": [
+            
+        ]
+    },
+    "deploymentDashboards": {
+        "count": 0
+    },
+    "parameters": {
+        "property": [
+            
+        ],
+        "count": 0,
+        "href": "/app/rest/projects/id:test_yBgKJqrpfU/parameters"
+    },
+    "vcsRoots": {
+        "count": 0,
+        "href": "/app/rest/vcs-roots?locator=project:(id:test_yBgKJqrpfU)"
+    },
+    "projectFeatures": {
+        "count": 0,
+        "href": "/app/rest/projects/id:test_yBgKJqrpfU/projectFeatures"
+    },
+    "projects": {
+        "count": 0
+    }
+}
+Request method:	GET
+Request URI:	http://test_AJnQGwArGb:test_CTWpAwHwIo@172.17.0.1:8111/app/rest/buildTypes/id%3Atest_yBgKJqrpfU_testvFkPoVSVlW
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=06F8F3BFF70859B4E8554D71FBD34AC0; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:18 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:08 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "id": "test_yBgKJqrpfU_TestVFkPoVSVlW",
+    "name": "test_vFkPoVSVlW",
+    "projectName": "test_RDrbouFbZv",
+    "projectId": "test_yBgKJqrpfU",
+    "href": "/app/rest/buildTypes/id:test_yBgKJqrpfU_TestVFkPoVSVlW",
+    "webUrl": "http://localhost:8111/viewType.html?buildTypeId=test_yBgKJqrpfU_TestVFkPoVSVlW",
+    "project": {
+        "id": "test_yBgKJqrpfU",
+        "name": "test_RDrbouFbZv",
+        "parentProjectId": "_Root",
+        "href": "/app/rest/projects/id:test_yBgKJqrpfU",
+        "webUrl": "http://localhost:8111/project.html?projectId=test_yBgKJqrpfU"
+    },
+    "templates": {
+        "count": 0,
+        "buildType": [
+            
+        ]
+    },
+    "vcs-root-entries": {
+        "count": 1,
+        "vcs-root-entry": [
+            {
+                "id": "test_yBgKJqrpfU_HttpsGithubComDtitarWorkshopTestAutomationFromScratchRefsHeadsMaster",
+                "vcs-root": {
+                    "id": "test_yBgKJqrpfU_HttpsGithubComDtitarWorkshopTestAutomationFromScratchRefsHeadsMaster",
+                    "name": "https://github.com/dtitar/workshop-test-automation-from-scratch#refs/heads/master",
+                    "href": "/app/rest/vcs-roots/id:test_yBgKJqrpfU_HttpsGithubComDtitarWorkshopTestAutomationFromScratchRefsHeadsMaster"
+                },
+                "checkout-rules": ""
+            }
+        ]
+    },
+    "settings": {
+        "property": [
+            {
+                "name": "buildNumberCounter",
+                "value": "1"
+            }
+        ],
+        "count": 1
+    },
+    "parameters": {
+        "property": [
+            
+        ],
+        "count": 0,
+        "href": "/app/rest/buildTypes/id:test_yBgKJqrpfU_TestVFkPoVSVlW/parameters"
+    },
+    "steps": {
+        "count": 0
+    },
+    "features": {
+        "count": 1,
+        "feature": [
+            {
+                "id": "perfmon",
+                "type": "perfmon",
+                "properties": {
+                    "property": [
+                        {
+                            "name": "teamcity.perfmon.feature.enabled",
+                            "value": "true"
+                        }
+                    ],
+                    "count": 1
+                }
+            }
+        ]
+    },
+    "triggers": {
+        "count": 1,
+        "trigger": [
+            {
+                "id": "TRIGGER_2",
+                "type": "vcsTrigger",
+                "properties": {
+                    "property": [
+                        {
+                            "name": "branchFilter",
+                            "value": "+:*"
+                        },
+                        {
+                            "name": "enableQueueOptimization",
+                            "value": "true"
+                        },
+                        {
+                            "name": "quietPeriodMode",
+                            "value": "DO_NOT_USE"
+                        }
+                    ],
+                    "count": 3
+                }
+            }
+        ]
+    },
+    "snapshot-dependencies": {
+        "count": 0
+    },
+    "artifact-dependencies": {
+        "count": 0
+    },
+    "agent-requirements": {
+        "count": 0
+    },
+    "builds": {
+        "href": "/app/rest/buildTypes/id:test_yBgKJqrpfU_TestVFkPoVSVlW/builds/"
+    },
+    "investigations": {
+        "href": "/app/rest/investigations?locator=buildType:(id:test_yBgKJqrpfU_TestVFkPoVSVlW)"
+    },
+    "compatibleAgents": {
+        "href": "/app/rest/agents?locator=compatible:(buildType:(id:test_yBgKJqrpfU_TestVFkPoVSVlW))"
+    },
+    "compatibleCloudImages": {
+        
+    }
+}
+]]></system-out>
+    <system-err><![CDATA[[main] INFO com.github.dtitar.teamcity.ui.listeners.UiTestFailListener - Test null not succeeded, result is 2
+[main] INFO com.github.dtitar.teamcity.ui.listeners.UiTestFailListener - Adding video...
+[main] INFO com.github.dtitar.teamcity.ui.BrowserSettings - Video URL: http://172.17.0.1:4444/video/620a1ac9-53f7-4d54-ab75-c80c97e83410.mp4
+]]></system-err>
+  </testcase>
+  <testcase name="userShouldBeAbleToCreateBuildTypeManually" classname="com.github.dtitar.teamcity.ui.CreateNewBuildTypeTest" time="6.29">
+    <system-out><![CDATA[Request method:	DELETE
+Request URI:	http://test_PbjJSCYuXW:test_IEpaTebHxl@172.17.0.1:8111/app/rest/projects/id%3AtestbNcBVnkDxb
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 401 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=307A0E8D34A4CD1221A9F5B8E7B503E4; Path=/; HttpOnly
+WWW-Authenticate: Basic realm="TeamCity"
+Cache-Control: no-store
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Incorrect username or password.
+To login manually go to "/login.html" page
+Request method:	DELETE
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users/username%3Atest_PbjJSCYuXW
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 404 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=A70EFDAB62A64197E2B72ADAA5A77A2F; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:19 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: text/plain
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Responding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: User not found
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.
+Request method:	DELETE
+Request URI:	http://test_udWiQOswlA:test_IQDaQUDnGY@172.17.0.1:8111/app/rest/projects/id%3Atest_FmGYlaNqLl
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 401 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=0A25950A536B88A972AA57F7466AE2F8; Path=/; HttpOnly
+WWW-Authenticate: Basic realm="TeamCity"
+Cache-Control: no-store
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Incorrect username or password.
+To login manually go to "/login.html" page
+Request method:	DELETE
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users/username%3Atest_udWiQOswlA
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 404 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=09F90E7D549858FD146BBCBCF19DE0DF; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:19 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: text/plain
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Responding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: User not found
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.
+Request method:	DELETE
+Request URI:	http://test_AJnQGwArGb:test_CTWpAwHwIo@172.17.0.1:8111/app/rest/projects/id%3Atest_yBgKJqrpfU
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=CCF06880811ED7A77390663F12551AB9; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:19 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Request method:	DELETE
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users/username%3Atest_AJnQGwArGb
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=E28E35DFB17DAD19D2D7FEC869710190; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:19 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+TestData{
+user=User(username=test_JJIrjCWjrE, password=test_ZaDjLCniYF, email=test_CXXgKZFtBw@gmail.com, roles=Roles(role=[Role(roleId=SYSTEM_ADMIN, scope=g, href=null)])), 
+project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_CmzXUatnxa, id=test_CIodLiwLCa, copyAllAssociatedSettings=true), 
+buildType=BuildType(id=test_orfYMgryEI, name=test_DgSewRazoy, project=NewProjectDescription(parentProject=Project(id=null, name=null, parentProjectId=null, locator=_Root), name=test_CmzXUatnxa, id=test_CIodLiwLCa, copyAllAssociatedSettings=true))
+}
+
+Request method:	POST
+Request URI:	http://:1829234788004251232@172.17.0.1:8111/app/rest/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "username": "test_JJIrjCWjrE",
+    "password": "test_ZaDjLCniYF",
+    "email": "test_CXXgKZFtBw@gmail.com",
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": null
+            }
+        ]
+    }
+}
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=8BD7F86A2527579954F557C9A31F49D9; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:19 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:09 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "username": "test_jjirjcwjre",
+    "id": 35,
+    "email": "test_CXXgKZFtBw@gmail.com",
+    "href": "/app/rest/users/id:35",
+    "properties": {
+        "property": [
+            {
+                "name": "addTriggeredBuildToFavorites",
+                "value": "true"
+            },
+            {
+                "name": "plugin:vcs:anyVcs:anyVcsRoot",
+                "value": "test_JJIrjCWjrE"
+            },
+            {
+                "name": "teamcity.server.buildNumber",
+                "value": "147412"
+            }
+        ],
+        "count": 3,
+        "href": "/app/rest/users/id:35/properties"
+    },
+    "roles": {
+        "role": [
+            {
+                "roleId": "SYSTEM_ADMIN",
+                "scope": "g",
+                "href": "/app/rest/users/id:35/roles/SYSTEM_ADMIN/g"
+            }
+        ]
+    },
+    "groups": {
+        "count": 1,
+        "group": [
+            {
+                "key": "ALL_USERS_GROUP",
+                "name": "All Users",
+                "href": "/app/rest/userGroups/key:ALL_USERS_GROUP",
+                "description": "Contains all TeamCity users"
+            }
+        ]
+    }
+}
+Request method:	POST
+Request URI:	http://test_JJIrjCWjrE:test_ZaDjLCniYF@172.17.0.1:8111/app/rest/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "parentProject": {
+        "id": null,
+        "name": null,
+        "parentProjectId": null,
+        "locator": "_Root"
+    },
+    "name": "test_CmzXUatnxa",
+    "id": "test_CIodLiwLCa",
+    "copyAllAssociatedSettings": true
+}
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=622A0E5ABAA7CFE14FCD9E0DC0CDA571; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:21 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:10 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "id": "test_CIodLiwLCa",
+    "name": "test_CmzXUatnxa",
+    "parentProjectId": "_Root",
+    "virtual": false,
+    "href": "/app/rest/projects/id:test_CIodLiwLCa",
+    "webUrl": "http://localhost:8111/project.html?projectId=test_CIodLiwLCa",
+    "parentProject": {
+        "id": "_Root",
+        "name": "<Root project>",
+        "description": "Contains all other projects",
+        "href": "/app/rest/projects/id:_Root",
+        "webUrl": "http://localhost:8111/project.html?projectId=_Root"
+    },
+    "buildTypes": {
+        "count": 0,
+        "buildType": [
+            
+        ]
+    },
+    "templates": {
+        "count": 0,
+        "buildType": [
+            
+        ]
+    },
+    "deploymentDashboards": {
+        "count": 0
+    },
+    "parameters": {
+        "property": [
+            
+        ],
+        "count": 0,
+        "href": "/app/rest/projects/id:test_CIodLiwLCa/parameters"
+    },
+    "vcsRoots": {
+        "count": 0,
+        "href": "/app/rest/vcs-roots?locator=project:(id:test_CIodLiwLCa)"
+    },
+    "projectFeatures": {
+        "count": 0,
+        "href": "/app/rest/projects/id:test_CIodLiwLCa/projectFeatures"
+    },
+    "projects": {
+        "count": 0
+    }
+}
+Request method:	GET
+Request URI:	http://test_JJIrjCWjrE:test_ZaDjLCniYF@172.17.0.1:8111/app/rest/buildTypes/id%3Atest_orfYMgryEI
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 
+TeamCity-Node-Id: MAIN_SERVER
+Set-Cookie: TCSESSIONID=5A02A7FE0744EA38EEB2B607DFFCE450; Path=/; HttpOnly
+Set-Cookie: RecentLogin=; Max-Age=10; Expires=Wed, 21 Feb 2024 20:03:26 GMT; Path=/
+Set-Cookie: RememberMe=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/; HttpOnly
+Cache-Control: no-store
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 21 Feb 2024 20:03:16 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "id": "test_orfYMgryEI",
+    "name": "test_DgSewRazoy",
+    "projectName": "test_CmzXUatnxa",
+    "projectId": "test_CIodLiwLCa",
+    "href": "/app/rest/buildTypes/id:test_orfYMgryEI",
+    "webUrl": "http://localhost:8111/viewType.html?buildTypeId=test_orfYMgryEI",
+    "project": {
+        "id": "test_CIodLiwLCa",
+        "name": "test_CmzXUatnxa",
+        "parentProjectId": "_Root",
+        "href": "/app/rest/projects/id:test_CIodLiwLCa",
+        "webUrl": "http://localhost:8111/project.html?projectId=test_CIodLiwLCa"
+    },
+    "templates": {
+        "count": 0,
+        "buildType": [
+            
+        ]
+    },
+    "vcs-root-entries": {
+        "count": 0,
+        "vcs-root-entry": [
+            
+        ]
+    },
+    "settings": {
+        "property": [
+            {
+                "name": "buildNumberCounter",
+                "value": "1"
+            }
+        ],
+        "count": 1
+    },
+    "parameters": {
+        "property": [
+            
+        ],
+        "count": 0,
+        "href": "/app/rest/buildTypes/id:test_orfYMgryEI/parameters"
+    },
+    "steps": {
+        "count": 0
+    },
+    "features": {
+        "count": 0
+    },
+    "triggers": {
+        "count": 0
+    },
+    "snapshot-dependencies": {
+        "count": 0
+    },
+    "artifact-dependencies": {
+        "count": 0
+    },
+    "agent-requirements": {
+        "count": 0
+    },
+    "builds": {
+        "href": "/app/rest/buildTypes/id:test_orfYMgryEI/builds/"
+    },
+    "investigations": {
+        "href": "/app/rest/investigations?locator=buildType:(id:test_orfYMgryEI)"
+    },
+    "compatibleAgents": {
+        "href": "/app/rest/agents?locator=compatible:(buildType:(id:test_orfYMgryEI))"
+    },
+    "compatibleCloudImages": {
+        
+    }
+}
+]]></system-out>
+  </testcase>
+</testsuite>

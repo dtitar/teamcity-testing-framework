@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [UI Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="UI Test(failed)" verbose="0">
+    <classes>
+      <class name="com.github.dtitar.teamcity.ui.CreateNewProjectTest">
+        <methods>
+          <include name="authorizedUserShouldBeAbleCreateProjectManually"/>
+          <include name="authorizedUserShouldBeAbleCreateProjectFromRepositoryUrl"/>
+          <include name="beforeUiTest"/>
+          <include name="setupUiTests"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- com.github.dtitar.teamcity.ui.CreateNewProjectTest -->
+    </classes>
+  </test> <!-- UI Test(failed) -->
+</suite> <!-- Failed suite [UI Suite] -->
