@@ -1,6 +1,6 @@
 package com.github.dtitar.teamcity.api.models;
 
-import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
