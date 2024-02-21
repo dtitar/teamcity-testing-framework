@@ -97,6 +97,7 @@ jobs:
         if: always()
         run: |
           cd infra/swagger-coverage-commandline/bin && \
+          chmod +x swagger-coverage-commandline && \
           ./swagger-coverage-commandline -s http://$HOST:8111/app/rest/swagger.json -i target/swagger-coverage-output
 
       - name: Save swagger coverage
