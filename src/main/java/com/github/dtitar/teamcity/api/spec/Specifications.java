@@ -2,12 +2,18 @@ package com.github.dtitar.teamcity.api.spec;
 
 import com.github.dtitar.teamcity.api.config.Config;
 import com.github.dtitar.teamcity.api.models.User;
+import com.github.viclovsky.swagger.coverage.FileSystemOutputWriter;
+import com.github.viclovsky.swagger.coverage.SwaggerCoverageRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
+import java.nio.file.Paths;
+import java.util.List;
+
+import static com.github.viclovsky.swagger.coverage.SwaggerCoverageConstants.OUTPUT_DIRECTORY;
 import static java.lang.String.format;
 
 public class Specifications {
@@ -26,8 +32,10 @@ public class Specifications {
     private RequestSpecBuilder reqBuilder() {
         var requestBuilder = new RequestSpecBuilder();
         requestBuilder.setBaseUri(format("http://%s", Config.getProperty("host")));
-        requestBuilder.addFilter(new RequestLoggingFilter());
-        requestBuilder.addFilter(new ResponseLoggingFilter());
+        requestBuilder.addFilters(List.of(
+                new RequestLoggingFilter(),
+                new ResponseLoggingFilter(),
+                new SwaggerCoverageRestAssured(new FileSystemOutputWriter(Paths.get("target/" + OUTPUT_DIRECTORY)))));
         requestBuilder.setContentType(ContentType.JSON);
         requestBuilder.setAccept(ContentType.JSON);
         return requestBuilder;
