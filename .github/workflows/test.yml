@@ -98,7 +98,13 @@ jobs:
         run: |
           cd infra/swagger-coverage-commandline/bin && \
           chmod +x swagger-coverage-commandline && \
-          ./swagger-coverage-commandline -s http://$HOST:8111/app/rest/swagger.json -i target/swagger-coverage-output
+          ./swagger-coverage-commandline -q -s http://$HOST:8111/app/rest/swagger.json -i target/swagger-coverage-output
+
+      - name: Print workdir
+        run: |
+         ls -la $(pwd) && \
+         ls -la $(pwd)/target && \
+         ls -la $(pwd)/target/swagger-coverage-output
 
       - name: Save swagger coverage
         uses: actions/upload-artifact@v4
@@ -107,7 +113,7 @@ jobs:
             name: swagger-coverage
             path: |
               swagger-coverage-report.html
-              swagger-coverage-results.json
+              swagger-coverage-results.json     
 
       - name: Run ui tests
         run: ./mvnw test -DsuiteXmlFile=ui-suite.xml
