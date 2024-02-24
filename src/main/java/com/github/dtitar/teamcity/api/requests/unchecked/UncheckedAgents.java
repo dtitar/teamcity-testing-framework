@@ -8,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 
-public class UncheckedAgents extends Request implements CrudInterface {
+public final class UncheckedAgents extends Request implements CrudInterface {
 
     private static final String AGENTS_ENDPOINT = "/app/rest/agents";
 

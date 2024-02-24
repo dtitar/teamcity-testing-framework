@@ -8,7 +8,7 @@ import io.restassured.parsing.Parser;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 
-public class CheckedAgents extends Request implements CrudInterface {
+public final class CheckedAgents extends Request implements CrudInterface {
 
 
     public CheckedAgents(RequestSpecification spec) {

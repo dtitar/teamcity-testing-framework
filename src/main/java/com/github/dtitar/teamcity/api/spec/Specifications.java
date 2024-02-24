@@ -16,7 +16,7 @@ import java.util.List;
 import static com.github.viclovsky.swagger.coverage.SwaggerCoverageConstants.OUTPUT_DIRECTORY;
 import static java.lang.String.format;
 
-public class Specifications {
+public final class Specifications {
     private static Specifications spec;
 
     private Specifications() {

@@ -13,7 +13,8 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.elements;
 import static java.lang.String.format;
 
-public class ProjectPage extends FavoritesPage {
+public final class ProjectPage extends FavoritesPage {
+    private static final int BUILD_TYPE_TIMEOUT_IN_SECONDS = 30;
     private final ElementsCollection buildTypes = elements(ByAttribute.cssSelector("[class*=BuildTypeLine__root]"));
 
     public ProjectPage open(String projectName) {
@@ -32,7 +33,7 @@ public class ProjectPage extends FavoritesPage {
                 .reduce((first, second) -> second)
                 .get()
                 .getHeader()
-                .shouldHave(Condition.text(buildTypeName), Duration.ofSeconds(30));
+                .shouldHave(Condition.text(buildTypeName), Duration.ofSeconds(BUILD_TYPE_TIMEOUT_IN_SECONDS));
         return this;
     }
 }

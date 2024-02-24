@@ -12,9 +12,9 @@ import static com.codeborne.selenide.Selenide.element;
 public class FavoritesPage extends Page {
     private SelenideElement header = element(Selectors.byClass("ProjectPageHeader__title--ih"));
 
-    public void waitUntilFavoritePageIsLoaded() {
+    public final void waitUntilFavoritePageIsLoaded() {
         waitUntilPageIsLoaded();
-        header.shouldBe(Condition.visible, Duration.ofSeconds(20));
+        header.shouldBe(Condition.visible, Duration.ofSeconds(PAGE_LOAD_WAIT_TIMEOUT_IN_SECONDS));
     }
 
 }

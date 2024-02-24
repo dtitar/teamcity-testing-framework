@@ -1,15 +1,13 @@
 package com.github.dtitar.teamcity.api.requests.unchecked;
 
-import com.github.dtitar.teamcity.api.models.User;
 import com.github.dtitar.teamcity.api.requests.CrudInterface;
 import com.github.dtitar.teamcity.api.requests.Request;
-import com.github.dtitar.teamcity.api.spec.Specifications;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class UncheckedProject extends Request implements CrudInterface {
+public final class UncheckedProject extends Request implements CrudInterface {
 
     private static final String PROJECT_ENDPOINT = "/app/rest/projects";
 

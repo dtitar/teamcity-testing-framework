@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class TestData {
+public final class TestData {
 
     public static final int MIN_PROJECT_NAME_LENGTH = 1;
     public static final int MAX_PROJECT_NAME_LENGTH = 80;
@@ -31,10 +31,10 @@ public class TestData {
 
     @Override
     public String toString() {
-        return "TestData{\n" +
-                "user=" + user +
-                ", \nproject=" + project +
-                ", \nbuildType=" + buildType +
-                "\n}\n";
+        return "TestData{\n"
+                + "user=" + user
+                + ", \nproject=" + project
+                + ", \nbuildType=" + buildType
+                + "\n}\n";
     }
 }

@@ -9,9 +9,9 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.element;
 
 @Getter
-public class LoginAsSuperUserPage extends Page {
+public final class LoginAsSuperUserPage extends Page {
     private static final String LOGIN_AS_SUPER_USER_PAGE_URL = "/login.html?super=1";
-    private static final SelenideElement authenticationTokenInput = element(Selectors.byId("password"));
+    private final SelenideElement authenticationTokenInput = element(Selectors.byId("password"));
 
     public LoginAsSuperUserPage open() {
         Selenide.open(LOGIN_AS_SUPER_USER_PAGE_URL);

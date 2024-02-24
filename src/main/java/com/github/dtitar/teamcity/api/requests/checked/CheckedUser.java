@@ -8,7 +8,7 @@ import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedUser;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 
-public class CheckedUser extends Request implements CrudInterface {
+public final class CheckedUser extends Request implements CrudInterface {
 
     public CheckedUser(RequestSpecification spec) {
         super(spec);

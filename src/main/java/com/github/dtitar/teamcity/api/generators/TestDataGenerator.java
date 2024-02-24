@@ -7,9 +7,11 @@ import com.github.dtitar.teamcity.api.enums.RoleId;
 import com.github.dtitar.teamcity.api.models.Role;
 import com.github.dtitar.teamcity.api.models.Roles;
 import com.github.dtitar.teamcity.api.models.User;
+import lombok.experimental.UtilityClass;
 
 import java.util.Arrays;
 
+@UtilityClass
 public class TestDataGenerator {
 
     public static TestData generate() {

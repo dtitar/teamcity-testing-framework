@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.element;
 
-public class StartUpPage extends Page {
+public final class StartUpPage extends Page {
 
     private static final String START_UP_URL = "/mnt";
 
@@ -21,7 +21,8 @@ public class StartUpPage extends Page {
     private SelenideElement proceedButton = element(Selectors.byId("proceedButton"));
     private SelenideElement startUpLoader = element(Selectors.byId("stageDescription"));
     private SelenideElement creatingANewDataBaseMessage = $x("//*[text()='Creating a new database']");
-    private SelenideElement initializingTeamCityServerComponentsMessage = $x("//*[text()='Initializing TeamCity server components']");
+    private SelenideElement initializingTeamCityServerComponentsMessage =
+            $x("//*[text()='Initializing TeamCity server components']");
 
 
     public StartUpPage open() {
@@ -51,7 +52,10 @@ public class StartUpPage extends Page {
     }
 
     private void waitUntilTeamCityComponentsLoaded() {
-        creatingANewDataBaseMessage.shouldNotBe(visible, Duration.ofSeconds(30));
-        initializingTeamCityServerComponentsMessage.shouldNotBe(visible, Duration.ofMinutes(3));
+        final var databaseMessageDisappearTimeoutInSeconds = 30;
+        final var initializeTeamcityServerTimeoutInSeconds = 180;
+        creatingANewDataBaseMessage.shouldNotBe(visible, Duration.ofSeconds(databaseMessageDisappearTimeoutInSeconds));
+        initializingTeamCityServerComponentsMessage.shouldNotBe(visible,
+                Duration.ofSeconds(initializeTeamcityServerTimeoutInSeconds));
     }
 }

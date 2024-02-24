@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.attributeMatching;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.element;
 
-public class CreateNewProjectPage extends Page {
+public final class CreateNewProjectPage extends Page {
     private SelenideElement connectionSuccessfulMessage = element(Selectors.byClass("connectionSuccessful"));
     private SelenideElement urlInput = element(Selectors.byId("url"));
     private SelenideElement projectNameInput = element(Selectors.byId("projectName"));
@@ -33,7 +33,8 @@ public class CreateNewProjectPage extends Page {
     }
 
     public void setupProject(String projectName, String buildTypeName) {
-        connectionSuccessfulMessage.shouldBe(visible, Duration.ofSeconds(30));
+        final var setupProjectWaitTimeoutInSeconds = 30;
+        connectionSuccessfulMessage.shouldBe(visible, Duration.ofSeconds(setupProjectWaitTimeoutInSeconds));
         projectNameInput.setValue(projectName);
         buildTypeNameInput.setValue(buildTypeName);
         submit();

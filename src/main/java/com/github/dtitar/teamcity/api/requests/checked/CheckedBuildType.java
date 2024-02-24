@@ -7,7 +7,7 @@ import com.github.dtitar.teamcity.api.requests.unchecked.UncheckedBuildConfig;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 
-public class CheckedBuildType extends Request implements CrudInterface {
+public final class CheckedBuildType extends Request implements CrudInterface {
 
     public CheckedBuildType(RequestSpecification spec) {
         super(spec);

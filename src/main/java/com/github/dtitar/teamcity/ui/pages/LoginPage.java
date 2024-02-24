@@ -9,7 +9,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.element;
 
 @Getter
-public class LoginPage extends Page {
+public final class LoginPage extends Page {
     private static final String LOGIN_PAGE_URL = "/login.html";
     private SelenideElement usernameInput = element(new ByAttribute("id", "username"));
     private SelenideElement passwordInput = element(new ByAttribute("id", "password"));

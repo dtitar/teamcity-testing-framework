@@ -1,7 +1,9 @@
 package com.github.dtitar.teamcity.ui;
 
 import com.codeborne.selenide.selector.ByAttribute;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class Selectors {
     public static ByAttribute byId(String value) {
         return new ByAttribute("id", value);

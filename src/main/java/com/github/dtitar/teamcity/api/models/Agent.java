@@ -14,5 +14,4 @@ import lombok.NoArgsConstructor;
 public class Agent {
     private String id;
     private String name;
-
 }
