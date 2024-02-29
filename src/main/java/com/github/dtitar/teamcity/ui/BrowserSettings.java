@@ -3,6 +3,7 @@ package com.github.dtitar.teamcity.ui;
 import com.codeborne.selenide.Configuration;
 import com.github.dtitar.teamcity.api.config.Config;
 import io.qameta.allure.Allure;
+import lombok.experimental.UtilityClass;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import java.util.Optional;
 import static com.codeborne.selenide.Selenide.sleep;
 import static java.lang.String.format;
 
+@UtilityClass
 public class BrowserSettings {
 
     private static Logger log = LoggerFactory.getLogger(BrowserSettings.class);
@@ -35,6 +37,8 @@ public class BrowserSettings {
             case "chrome":
                 setChromeOptions();
                 break;
+            default:
+                throw new IllegalArgumentException(format("Invalid '%s' parameter value", browser));
         }
     }
 
@@ -59,15 +63,17 @@ public class BrowserSettings {
     }
 
     public static void addVideo(String sessionId) {
+        final var videoAdditionTimeout = 1000;
+        final var videoAdditionAttempts = 10;
         URL videoUrl = getVideoUrl(sessionId);
         if (videoUrl != null) {
-            sleep(1000);
-            for (int i = 0; i < 10; i++) {
+            sleep(videoAdditionTimeout);
+            for (int i = 0; i < videoAdditionAttempts; i++) {
                 try (InputStream videoInputStream = videoUrl.openStream()) {
                     Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
                     break;
                 } catch (FileNotFoundException e) {
-                    sleep(1000);
+                    sleep(videoAdditionTimeout);
                 } catch (IOException e) {
                     log.warn("[ALLURE VIDEO ATTACHMENT ERROR] Cant attach allure video, {}", videoUrl);
                     e.printStackTrace();

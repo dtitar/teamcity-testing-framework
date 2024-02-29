@@ -12,7 +12,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.elements;
 
-public class ProjectsPage extends FavoritesPage {
+public final class ProjectsPage extends FavoritesPage {
     private static final String FAVORITE_PROJECTS_URL = "/favorite/projects";
     private ElementsCollection subProjects = elements(Selectors.byClass("Subproject__container--WE"));
 
@@ -27,12 +27,13 @@ public class ProjectsPage extends FavoritesPage {
     }
 
     public ProjectsPage checkProjectExist(String projectName) {
+        final var projectNameVisibilityTimeoutInSeconds = 30;
         getSubProjects()
                 .stream()
                 .reduce((first, second) -> second)
                 .get()
                 .getHeader()
-                .shouldHave(Condition.text(projectName), Duration.ofSeconds(30));
+                .shouldHave(Condition.text(projectName), Duration.ofSeconds(projectNameVisibilityTimeoutInSeconds));
         return this;
     }
 }

@@ -11,7 +11,9 @@ import static com.codeborne.selenide.Condition.attributeMatching;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.element;
 
-public class CreateBuildTypePage extends Page {
+public final class CreateBuildTypePage extends Page {
+
+    private static final int BUILD_TYPE_WAIT_TIMEOUT_IN_SECONDS = 30;
 
     private SelenideElement connectionSuccessfulMessage = element(Selectors.byClass("connectionSuccessful"));
 
@@ -29,14 +31,15 @@ public class CreateBuildTypePage extends Page {
     }
 
     public CreateBuildTypePage createBuildTypeByUrl(String repositoryUrl) {
-        fromRepositoryUrlTab.shouldBe(visible, Duration.ofSeconds(15)).click();
+        fromRepositoryUrlTab.shouldBe(visible, Duration.ofSeconds(BUILD_TYPE_WAIT_TIMEOUT_IN_SECONDS))
+                .click();
         repositoryUrlInput.setValue(repositoryUrl);
         submit();
         return this;
     }
 
     public void setupBuildType(String buildTypeName) {
-        connectionSuccessfulMessage.shouldBe(visible, Duration.ofSeconds(30));
+        connectionSuccessfulMessage.shouldBe(visible, Duration.ofSeconds(BUILD_TYPE_WAIT_TIMEOUT_IN_SECONDS));
         buildTypeNameInput.setValue(buildTypeName);
         submit();
     }

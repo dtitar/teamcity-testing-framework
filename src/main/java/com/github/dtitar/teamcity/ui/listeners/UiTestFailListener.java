@@ -10,7 +10,7 @@ import static com.github.dtitar.teamcity.ui.BrowserSettings.addVideo;
 import static com.github.dtitar.teamcity.ui.BrowserSettings.isVideoOn;
 import static java.lang.String.format;
 
-public class UiTestFailListener extends TestListenerAdapter {
+public final class UiTestFailListener extends TestListenerAdapter {
     private static Logger log = LoggerFactory.getLogger(UiTestFailListener.class);
 
     @Override

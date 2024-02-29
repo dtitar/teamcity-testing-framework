@@ -5,7 +5,7 @@ import com.github.dtitar.teamcity.api.spec.Specifications;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
 
-public class AuthRequest {
+public final class AuthRequest {
 
     private User user;
 

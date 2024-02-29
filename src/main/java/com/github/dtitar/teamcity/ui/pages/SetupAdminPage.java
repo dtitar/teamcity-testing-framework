@@ -7,7 +7,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.element;
 
 @Getter
-public class SetupAdminPage extends Page {
+public final class SetupAdminPage extends Page {
     private static final String SETUP_ADMIN_URL = "/setupAdmin";
     private SelenideElement header = element(Selectors.byId("header"));
 }

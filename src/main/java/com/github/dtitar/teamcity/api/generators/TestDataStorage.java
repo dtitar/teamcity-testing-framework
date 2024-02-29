@@ -3,7 +3,7 @@ package com.github.dtitar.teamcity.api.generators;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestDataStorage {
+public final class TestDataStorage {
     private static TestDataStorage testDataStorage;
     private List<TestData> testDataList;
 

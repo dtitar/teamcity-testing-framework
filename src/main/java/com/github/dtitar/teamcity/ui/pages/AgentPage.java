@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.element;
 import static java.lang.String.format;
 
-public class AgentPage extends Page {
+public final class AgentPage extends Page {
     private static final String AGENT_URL = "/agent";
 
     private SelenideElement authorizeButton = $("[class*=AuthorizeAgent__authorizeAgent--Xr]");
